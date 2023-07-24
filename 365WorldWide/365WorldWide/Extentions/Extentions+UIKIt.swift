@@ -11,7 +11,7 @@ import AVFoundation
 extension UIColor {
     static let mainYellowColor = UIColor(red: 1, green: 0.8824, blue: 0.2745, alpha: 1.0)
     static let cellBGColor = UIColor(red: 0.149, green: 0.1804, blue: 0.2235, alpha: 1.0)
-    
+    static let mainBGColor = UIColor(red: 0.1059, green: 0.1294, blue: 0.1647, alpha: 1.0)
 }
 
 extension UIView {
