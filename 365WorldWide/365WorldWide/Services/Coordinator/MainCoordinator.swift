@@ -22,10 +22,10 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-//    func popToPreviousVC() {
-//        navigationController.popViewController(animated: true)
-//    }
-//
+    func popToPreviousVC() {
+        navigationController.popViewController(animated: true)
+    }
+
     func openOnboardingController() {
         let onboardingVC = OnboardingViewController()
         onboardingVC.modalPresentationStyle = .overCurrentContext
@@ -46,34 +46,22 @@ class MainCoordinator: Coordinator {
 //        let detailVC = DetailViewController()
 //        navigationController.pushViewController(detailVC, animated: true)
 //    }
-//
-//    func openLoaderVC(viewModel: GameViewModel) {
-//        let loaderVC = PreloaderViewController(loaderState: .loader, viewModel: viewModel)
-//        navigationController.pushViewController(loaderVC, animated: true)
-//    }
-//
-//    func openUnloaderVC(view: UIView) {
-//        let loaderVC = PreloaderViewController(loaderState: .unloader, viewModel: nil)
-//        loaderVC.modalPresentationStyle = .overCurrentContext
-//        loaderVC.modalTransitionStyle = .crossDissolve
-//        navigationController.pushViewController(loaderVC, animated: true)
-//        view.window?.rootViewController = navigationController
-//        view.window?.makeKeyAndVisible()
-//    }
+
+
 //    func openSettingsVC() {
 //        let settingsVC = SettingsViewController()
 //        navigationController.pushViewController(settingsVC, animated: true)
 //    }
 //
-//    func openStatisticVC() {
-//        let statVC = StatisticViewController()
-//        navigationController.pushViewController(statVC, animated: true)
-//    }
+    func openSavedEventsVC() {
+        let statVC = SavedEventsViewController()
+        navigationController.pushViewController(statVC, animated: true)
+    }
 //
-//    func openTermsVC(isTerms: Bool) {
-//        let termsVC = TermsViewController(isTerms: isTerms)
-//        navigationController.pushViewController(termsVC, animated: true)
-//    }
+    func openTermsVC(isTerms: Bool) {
+        let termsVC = TermsViewController(isTerms: isTerms)
+        navigationController.pushViewController(termsVC, animated: true)
+    }
 //
 //    func openGameVC(viewModel: GameViewModel) {
 //        let gameVC = GameViewController(viewModel: viewModel)
