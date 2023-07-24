@@ -17,6 +17,11 @@
 		FA014EA82A6EC5D200043553 /* TermsPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EA62A6EC5D100043553 /* TermsPolicy.swift */; };
 		FA014EA92A6EC5D200043553 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EA72A6EC5D200043553 /* Settings.swift */; };
 		FA014EAC2A6EC93600043553 /* SavedEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */; };
+		FA639CDD2A6EDAFF00432728 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CDC2A6EDAFF00432728 /* MainViewController.swift */; };
+		FA639CDF2A6EDB1400432728 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CDE2A6EDB1400432728 /* MainView.swift */; };
+		FA639CE42A6EDCC300432728 /* FixtureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CE12A6EDCC300432728 /* FixtureView.swift */; };
+		FA639CE52A6EDCC300432728 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */; };
+		FA639CE62A6EDCC300432728 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CE32A6EDCC300432728 /* TeamView.swift */; };
 		FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528052A6EA53B005F95B1 /* AppDelegate.swift */; };
 		FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */; };
 		FAA5280F2A6EA53D005F95B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA5280E2A6EA53D005F95B1 /* Assets.xcassets */; };
@@ -42,6 +47,11 @@
 		FA014EA62A6EC5D100043553 /* TermsPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsPolicy.swift; sourceTree = "<group>"; };
 		FA014EA72A6EC5D200043553 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedEventsViewController.swift; sourceTree = "<group>"; };
+		FA639CDC2A6EDAFF00432728 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FA639CDE2A6EDB1400432728 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FA639CE12A6EDCC300432728 /* FixtureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureView.swift; sourceTree = "<group>"; };
+		FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA639CE32A6EDCC300432728 /* TeamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		FAA528022A6EA53B005F95B1 /* 365WorldWide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 365WorldWide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA528052A6EA53B005F95B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +117,25 @@
 			path = SavedEventsScreen;
 			sourceTree = "<group>";
 		};
+		FA639CDB2A6EDAED00432728 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FA639CDC2A6EDAFF00432728 /* MainViewController.swift */,
+				FA639CDE2A6EDB1400432728 /* MainView.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		FA639CE02A6EDBCF00432728 /* GeneralViews */ = {
+			isa = PBXGroup;
+			children = (
+				FA639CE12A6EDCC300432728 /* FixtureView.swift */,
+				FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */,
+				FA639CE32A6EDCC300432728 /* TeamView.swift */,
+			);
+			path = GeneralViews;
+			sourceTree = "<group>";
+		};
 		FAA527F92A6EA53B005F95B1 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +155,7 @@
 		FAA528042A6EA53B005F95B1 /* 365WorldWide */ = {
 			isa = PBXGroup;
 			children = (
+				FA639CE02A6EDBCF00432728 /* GeneralViews */,
 				FA014EA52A6EC5C400043553 /* Model */,
 				FAA5281C2A6EA5BF005F95B1 /* Extentions */,
 				FAA5281B2A6EA5B5005F95B1 /* Services */,
@@ -142,6 +172,7 @@
 		FAA528192A6EA573005F95B1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA639CDB2A6EDAED00432728 /* MainScreen */,
 				FA014EAA2A6EC91F00043553 /* SavedEventsScreen */,
 				FA014E9E2A6EC56E00043553 /* SettingsScreen */,
 				FA014E932A6EAE9500043553 /* OnboardingScreen */,
@@ -265,12 +296,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA639CDD2A6EDAFF00432728 /* MainViewController.swift in Sources */,
 				FA014EA42A6EC5AE00043553 /* SettingsCollectionViewCell.swift in Sources */,
 				FA014E9A2A6EB75600043553 /* OnboardingCollectionViewCell.swift in Sources */,
 				FAA528252A6EA67B005F95B1 /* Coordinator.swift in Sources */,
 				FAA528262A6EA67B005F95B1 /* SavingService.swift in Sources */,
 				FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */,
+				FA639CE42A6EDCC300432728 /* FixtureView.swift in Sources */,
 				FA014EA82A6EC5D200043553 /* TermsPolicy.swift in Sources */,
+				FA639CDF2A6EDB1400432728 /* MainView.swift in Sources */,
 				FA014EA22A6EC5AE00043553 /* TermsViewController.swift in Sources */,
 				FAA5282A2A6EA787005F95B1 /* LoaderViewController.swift in Sources */,
 				FA014E9B2A6EB75600043553 /* OnboardingViewModel.swift in Sources */,
@@ -279,11 +313,13 @@
 				FAA528282A6EA67B005F95B1 /* Observable.swift in Sources */,
 				FAA528242A6EA67B005F95B1 /* MainCoordinator.swift in Sources */,
 				FAA528272A6EA67B005F95B1 /* SaveManager.swift in Sources */,
+				FA639CE62A6EDCC300432728 /* TeamView.swift in Sources */,
 				FAA5282E2A6EA819005F95B1 /* Extentions+UIKIt.swift in Sources */,
 				FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */,
 				FA014E9D2A6EB76200043553 /* OnboardingViewController.swift in Sources */,
 				FA014E992A6EB75600043553 /* OnboardingView.swift in Sources */,
 				FAA5282C2A6EA7F4005F95B1 /* LoaderView.swift in Sources */,
+				FA639CE52A6EDCC300432728 /* DateCollectionViewCell.swift in Sources */,
 				FA014EA92A6EC5D200043553 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
