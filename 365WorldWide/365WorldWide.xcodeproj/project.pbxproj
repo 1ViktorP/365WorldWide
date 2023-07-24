@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA014E952A6EAEB100043553 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014E942A6EAEB100043553 /* OnboardingViewController.swift */; };
+		FA014E992A6EB75600043553 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014E962A6EB75600043553 /* OnboardingView.swift */; };
+		FA014E9A2A6EB75600043553 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014E972A6EB75600043553 /* OnboardingCollectionViewCell.swift */; };
+		FA014E9B2A6EB75600043553 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014E982A6EB75600043553 /* OnboardingViewModel.swift */; };
+		FA014E9D2A6EB76200043553 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014E9C2A6EB76200043553 /* OnboardingViewController.swift */; };
 		FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528052A6EA53B005F95B1 /* AppDelegate.swift */; };
 		FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */; };
 		FAA5280F2A6EA53D005F95B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA5280E2A6EA53D005F95B1 /* Assets.xcassets */; };
@@ -23,7 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA014E942A6EAEB100043553 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		FA014E962A6EB75600043553 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		FA014E972A6EB75600043553 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA014E982A6EB75600043553 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		FA014E9C2A6EB76200043553 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		FAA528022A6EA53B005F95B1 /* 365WorldWide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 365WorldWide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA528052A6EA53B005F95B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +60,10 @@
 		FA014E932A6EAE9500043553 /* OnboardingScreen */ = {
 			isa = PBXGroup;
 			children = (
-				FA014E942A6EAEB100043553 /* OnboardingViewController.swift */,
+				FA014E972A6EB75600043553 /* OnboardingCollectionViewCell.swift */,
+				FA014E9C2A6EB76200043553 /* OnboardingViewController.swift */,
+				FA014E962A6EB75600043553 /* OnboardingView.swift */,
+				FA014E982A6EB75600043553 /* OnboardingViewModel.swift */,
 			);
 			path = OnboardingScreen;
 			sourceTree = "<group>";
@@ -214,16 +223,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA014E9A2A6EB75600043553 /* OnboardingCollectionViewCell.swift in Sources */,
 				FAA528252A6EA67B005F95B1 /* Coordinator.swift in Sources */,
 				FAA528262A6EA67B005F95B1 /* SavingService.swift in Sources */,
 				FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */,
 				FAA5282A2A6EA787005F95B1 /* LoaderViewController.swift in Sources */,
+				FA014E9B2A6EB75600043553 /* OnboardingViewModel.swift in Sources */,
 				FAA528282A6EA67B005F95B1 /* Observable.swift in Sources */,
 				FAA528242A6EA67B005F95B1 /* MainCoordinator.swift in Sources */,
 				FAA528272A6EA67B005F95B1 /* SaveManager.swift in Sources */,
 				FAA5282E2A6EA819005F95B1 /* Extentions+UIKIt.swift in Sources */,
 				FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */,
-				FA014E952A6EAEB100043553 /* OnboardingViewController.swift in Sources */,
+				FA014E9D2A6EB76200043553 /* OnboardingViewController.swift in Sources */,
+				FA014E992A6EB75600043553 /* OnboardingView.swift in Sources */,
 				FAA5282C2A6EA7F4005F95B1 /* LoaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

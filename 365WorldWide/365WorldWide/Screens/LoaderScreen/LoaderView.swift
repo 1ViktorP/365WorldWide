@@ -37,7 +37,6 @@ class LoaderView: UIView {
         startButton.layer.borderWidth = 1
         bgImageView.image = UIImage(named: "loaderBG")
         textimageView.image = UIImage(named: "loaderText")
-        //progressView.progress = 0.1
         progressView.trackTintColor = UIColor(red: 0.1765, green: 0.2157, blue: 0.2667, alpha: 1.0)
         progressView.progressTintColor = .mainYellowColor
     }
