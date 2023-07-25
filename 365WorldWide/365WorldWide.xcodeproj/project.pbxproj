@@ -22,6 +22,7 @@
 		FA639CE42A6EDCC300432728 /* FixtureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CE12A6EDCC300432728 /* FixtureView.swift */; };
 		FA639CE52A6EDCC300432728 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */; };
 		FA639CE62A6EDCC300432728 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CE32A6EDCC300432728 /* TeamView.swift */; };
+		FA668AFC2A6F9895000C84B5 /* FixtureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668AFB2A6F9895000C84B5 /* FixtureCollectionViewCell.swift */; };
 		FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528052A6EA53B005F95B1 /* AppDelegate.swift */; };
 		FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */; };
 		FAA5280F2A6EA53D005F95B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA5280E2A6EA53D005F95B1 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		FA639CE12A6EDCC300432728 /* FixtureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureView.swift; sourceTree = "<group>"; };
 		FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA639CE32A6EDCC300432728 /* TeamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		FA668AFB2A6F9895000C84B5 /* FixtureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAA528022A6EA53B005F95B1 /* 365WorldWide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 365WorldWide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA528052A6EA53B005F95B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,8 @@
 			children = (
 				FA639CDC2A6EDAFF00432728 /* MainViewController.swift */,
 				FA639CDE2A6EDB1400432728 /* MainView.swift */,
+				FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */,
+				FA668AFB2A6F9895000C84B5 /* FixtureCollectionViewCell.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -130,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				FA639CE12A6EDCC300432728 /* FixtureView.swift */,
-				FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */,
 				FA639CE32A6EDCC300432728 /* TeamView.swift */,
 			);
 			path = GeneralViews;
@@ -301,6 +304,7 @@
 				FA014E9A2A6EB75600043553 /* OnboardingCollectionViewCell.swift in Sources */,
 				FAA528252A6EA67B005F95B1 /* Coordinator.swift in Sources */,
 				FAA528262A6EA67B005F95B1 /* SavingService.swift in Sources */,
+				FA668AFC2A6F9895000C84B5 /* FixtureCollectionViewCell.swift in Sources */,
 				FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */,
 				FA639CE42A6EDCC300432728 /* FixtureView.swift in Sources */,
 				FA014EA82A6EC5D200043553 /* TermsPolicy.swift in Sources */,
