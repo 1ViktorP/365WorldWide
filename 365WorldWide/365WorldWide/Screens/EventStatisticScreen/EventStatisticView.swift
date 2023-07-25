@@ -58,7 +58,6 @@ class EventStatisticView: UIView {
         self.addSubview(collectionView)
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.isScrollEnabled = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(EventStatisticCollectionViewCell.self, forCellWithReuseIdentifier: EventStatisticCollectionViewCell.reuseIdentifier)
         collectionView.register(BallPossesionCollectionViewCell.self, forCellWithReuseIdentifier: BallPossesionCollectionViewCell.reuseIdentifier)

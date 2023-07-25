@@ -1,5 +1,5 @@
 //
-//  StandingsView.swift
+//  H2hView.swift
 //  365WorldWide
 //
 //  Created by MacBook on 25.07.2023.
@@ -7,21 +7,12 @@
 
 import UIKit
 
-class StandingsView: UIView {
-    
+class H2hView: UIView {
+
     var collectionView: UICollectionView!
     
     private let topBGView = TopDetailView()
     var conteinerView = UIView()
-    let leageNameLabel: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.text = "league"
-        label.font = .systemFont(ofSize: 17, weight: .medium)
-        label.textColor = .white
-        return label
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +28,6 @@ class StandingsView: UIView {
         self.backgroundColor = .mainBGColor
         addSubview(topBGView)
         addSubview(conteinerView)
-        conteinerView.addSubview(leageNameLabel)
         conteinerView.backgroundColor = UIColor(red: 0.1686, green: 0.3529, blue: 0.2863, alpha: 0.5)
         conteinerView.layer.cornerRadius = 4
         conteinerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -55,8 +45,6 @@ class StandingsView: UIView {
             conteinerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             conteinerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            leageNameLabel.centerYAnchor.constraint(equalTo: conteinerView.centerYAnchor),
-            leageNameLabel.centerXAnchor.constraint(equalTo: conteinerView.centerXAnchor),
         ])
     }
     
@@ -66,7 +54,7 @@ class StandingsView: UIView {
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(StandingsCollectionViewCell.self, forCellWithReuseIdentifier: StandingsCollectionViewCell.reuseIdentifier)
+        collectionView.register(H2hCollectionViewCell.self, forCellWithReuseIdentifier: H2hCollectionViewCell.reuseIdentifier)
         
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
@@ -93,12 +81,11 @@ class StandingsView: UIView {
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(56))
+            heightDimension: .absolute(72))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [fullSizeItem])
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0)
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .none
         return section
     }
-
 }
