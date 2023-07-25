@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         let navController = UINavigationController()
         let coordinator = MainCoordinator(navigationController: navController)
-        window?.rootViewController = UINavigationController(rootViewController: StandingsViewController())//navController
+        window?.rootViewController = UINavigationController(rootViewController: EventStatisticViewController())//navController
         //SceneDelegate.deviceHeight = window?.frame.height ?? 0.0
         //coordinator.start()
         window?.makeKeyAndVisible()

@@ -32,6 +32,11 @@
 		FA668B0E2A6FB733000C84B5 /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B0D2A6FB733000C84B5 /* StandingsView.swift */; };
 		FA668B102A6FB7CF000C84B5 /* StandingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B0F2A6FB7CF000C84B5 /* StandingsCollectionViewCell.swift */; };
 		FA668B122A6FD904000C84B5 /* TopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B112A6FD904000C84B5 /* TopDetailView.swift */; };
+		FA668B152A6FDDB4000C84B5 /* EventStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B142A6FDDB4000C84B5 /* EventStatisticView.swift */; };
+		FA668B172A6FDDC9000C84B5 /* EventStatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B162A6FDDC9000C84B5 /* EventStatisticViewController.swift */; };
+		FA668B192A6FDE22000C84B5 /* EventStatisticCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B182A6FDE22000C84B5 /* EventStatisticCollectionViewCell.swift */; };
+		FA668B1B2A6FEA10000C84B5 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B1A2A6FEA10000C84B5 /* CircularProgressView.swift */; };
+		FA668B1D2A6FED8E000C84B5 /* BallPossesionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B1C2A6FED8E000C84B5 /* BallPossesionCollectionViewCell.swift */; };
 		FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528052A6EA53B005F95B1 /* AppDelegate.swift */; };
 		FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */; };
 		FAA5280F2A6EA53D005F95B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA5280E2A6EA53D005F95B1 /* Assets.xcassets */; };
@@ -72,6 +77,11 @@
 		FA668B0D2A6FB733000C84B5 /* StandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsView.swift; sourceTree = "<group>"; };
 		FA668B0F2A6FB7CF000C84B5 /* StandingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA668B112A6FD904000C84B5 /* TopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDetailView.swift; sourceTree = "<group>"; };
+		FA668B142A6FDDB4000C84B5 /* EventStatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStatisticView.swift; sourceTree = "<group>"; };
+		FA668B162A6FDDC9000C84B5 /* EventStatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStatisticViewController.swift; sourceTree = "<group>"; };
+		FA668B182A6FDE22000C84B5 /* EventStatisticCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStatisticCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA668B1A2A6FEA10000C84B5 /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		FA668B1C2A6FED8E000C84B5 /* BallPossesionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallPossesionCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAA528022A6EA53B005F95B1 /* 365WorldWide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 365WorldWide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA528052A6EA53B005F95B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +163,7 @@
 			children = (
 				FA639CE12A6EDCC300432728 /* FixtureView.swift */,
 				FA639CE32A6EDCC300432728 /* TeamView.swift */,
+				FA668B1A2A6FEA10000C84B5 /* CircularProgressView.swift */,
 				FA668B112A6FD904000C84B5 /* TopDetailView.swift */,
 			);
 			path = GeneralViews;
@@ -178,6 +189,17 @@
 				FA668B0F2A6FB7CF000C84B5 /* StandingsCollectionViewCell.swift */,
 			);
 			path = StandingsScreen;
+			sourceTree = "<group>";
+		};
+		FA668B132A6FDD8F000C84B5 /* EventStatisticScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FA668B142A6FDDB4000C84B5 /* EventStatisticView.swift */,
+				FA668B162A6FDDC9000C84B5 /* EventStatisticViewController.swift */,
+				FA668B182A6FDE22000C84B5 /* EventStatisticCollectionViewCell.swift */,
+				FA668B1C2A6FED8E000C84B5 /* BallPossesionCollectionViewCell.swift */,
+			);
+			path = EventStatisticScreen;
 			sourceTree = "<group>";
 		};
 		FAA527F92A6EA53B005F95B1 = {
@@ -216,6 +238,7 @@
 		FAA528192A6EA573005F95B1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA668B132A6FDD8F000C84B5 /* EventStatisticScreen */,
 				FA668B0A2A6FB548000C84B5 /* StandingsScreen */,
 				FA668B012A6FA39A000C84B5 /* DetailEventScreen */,
 				FA639CDB2A6EDAED00432728 /* MainScreen */,
@@ -342,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA668B152A6FDDB4000C84B5 /* EventStatisticView.swift in Sources */,
 				FA639CDD2A6EDAFF00432728 /* MainViewController.swift in Sources */,
 				FA014EA42A6EC5AE00043553 /* SettingsCollectionViewCell.swift in Sources */,
 				FA668B0C2A6FB648000C84B5 /* StandingsViewController.swift in Sources */,
@@ -355,6 +379,7 @@
 				FA014EA82A6EC5D200043553 /* TermsPolicy.swift in Sources */,
 				FA668B0E2A6FB733000C84B5 /* StandingsView.swift in Sources */,
 				FA639CDF2A6EDB1400432728 /* MainView.swift in Sources */,
+				FA668B192A6FDE22000C84B5 /* EventStatisticCollectionViewCell.swift in Sources */,
 				FA668B032A6FA3B8000C84B5 /* DetailEventViewController.swift in Sources */,
 				FA668B072A6FA8B2000C84B5 /* DetailEventViewModel.swift in Sources */,
 				FA014EA22A6EC5AE00043553 /* TermsViewController.swift in Sources */,
@@ -362,6 +387,7 @@
 				FA014E9B2A6EB75600043553 /* OnboardingViewModel.swift in Sources */,
 				FA014EAC2A6EC93600043553 /* SavedEventsViewController.swift in Sources */,
 				FA014EA32A6EC5AE00043553 /* SettingsViewController.swift in Sources */,
+				FA668B172A6FDDC9000C84B5 /* EventStatisticViewController.swift in Sources */,
 				FAA528282A6EA67B005F95B1 /* Observable.swift in Sources */,
 				FAA528242A6EA67B005F95B1 /* MainCoordinator.swift in Sources */,
 				FA668B092A6FAAB8000C84B5 /* LabelsStackView.swift in Sources */,
@@ -376,6 +402,8 @@
 				FA014E992A6EB75600043553 /* OnboardingView.swift in Sources */,
 				FAA5282C2A6EA7F4005F95B1 /* LoaderView.swift in Sources */,
 				FA639CE52A6EDCC300432728 /* DateCollectionViewCell.swift in Sources */,
+				FA668B1D2A6FED8E000C84B5 /* BallPossesionCollectionViewCell.swift in Sources */,
+				FA668B1B2A6FEA10000C84B5 /* CircularProgressView.swift in Sources */,
 				FA014EA92A6EC5D200043553 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
