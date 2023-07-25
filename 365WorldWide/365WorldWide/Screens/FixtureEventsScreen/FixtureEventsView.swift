@@ -1,5 +1,5 @@
 //
-//  StandingsView.swift
+//  FixtureEventsView.swift
 //  365WorldWide
 //
 //  Created by MacBook on 25.07.2023.
@@ -7,21 +7,11 @@
 
 import UIKit
 
-class StandingsView: UIView {
-    
+class FixtureEventsView: UIView {
+
     var collectionView: UICollectionView!
     
     private let topBGView = TopDetailView()
-    var conteinerView = UIView()
-    let leageNameLabel: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.text = "league"
-        label.font = .systemFont(ofSize: 17, weight: .medium)
-        label.textColor = .white
-        return label
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,12 +26,6 @@ class StandingsView: UIView {
     private func setUp() {
         self.backgroundColor = .mainBGColor
         addSubview(topBGView)
-        addSubview(conteinerView)
-        conteinerView.addSubview(leageNameLabel)
-        conteinerView.backgroundColor = UIColor(red: 0.1686, green: 0.3529, blue: 0.2863, alpha: 0.5)
-        conteinerView.layer.cornerRadius = 4
-        conteinerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        conteinerView.translatesAutoresizingMaskIntoConstraints = false
         topBGView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -49,30 +33,23 @@ class StandingsView: UIView {
             topBGView.leadingAnchor.constraint(equalTo: leadingAnchor),
             topBGView.trailingAnchor.constraint(equalTo: trailingAnchor),
             topBGView.heightAnchor.constraint(equalToConstant: 153),
-            
-            conteinerView.topAnchor.constraint(equalTo: topBGView.bottomAnchor, constant: 32),
-            conteinerView.heightAnchor.constraint(equalToConstant: 44),
-            conteinerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            conteinerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
-            leageNameLabel.centerYAnchor.constraint(equalTo: conteinerView.centerYAnchor),
-            leageNameLabel.centerXAnchor.constraint(equalTo: conteinerView.centerXAnchor),
+
         ])
     }
     
     private func setUpCollectionView() {
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: generateLayout())
         self.addSubview(collectionView)
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .cellBGColor
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(StandingsCollectionViewCell.self, forCellWithReuseIdentifier: StandingsCollectionViewCell.reuseIdentifier)
+        collectionView.register(FixtureEventsCollectionViewCell.self, forCellWithReuseIdentifier: FixtureEventsCollectionViewCell.reuseIdentifier)
         
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            collectionView.topAnchor.constraint(equalTo: conteinerView.bottomAnchor, constant: 0)
+            collectionView.topAnchor.constraint(equalTo: topBGView.bottomAnchor, constant: 32)
         ])
     }
     
@@ -93,12 +70,14 @@ class StandingsView: UIView {
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(56))
+            heightDimension: .absolute(66))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [fullSizeItem])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 24, leading: 0, bottom: 0, trailing: 0)
         section.orthogonalScrollingBehavior = .none
         return section
     }
+
 
 }

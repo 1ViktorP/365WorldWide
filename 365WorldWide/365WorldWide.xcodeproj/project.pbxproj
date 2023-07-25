@@ -41,6 +41,9 @@
 		FA668B222A6FF6C5000C84B5 /* H2hViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B212A6FF6C5000C84B5 /* H2hViewController.swift */; };
 		FA668B252A6FF6FA000C84B5 /* H2hView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B242A6FF6FA000C84B5 /* H2hView.swift */; };
 		FA668B272A6FF867000C84B5 /* TeamH2hSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B262A6FF867000C84B5 /* TeamH2hSubview.swift */; };
+		FA668B2A2A700E54000C84B5 /* FixtureEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B292A700E54000C84B5 /* FixtureEventsView.swift */; };
+		FA668B2C2A700E68000C84B5 /* FixtureEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B2B2A700E68000C84B5 /* FixtureEventsViewController.swift */; };
+		FA668B2E2A700E7C000C84B5 /* FixtureEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B2D2A700E7C000C84B5 /* FixtureEventsCollectionViewCell.swift */; };
 		FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528052A6EA53B005F95B1 /* AppDelegate.swift */; };
 		FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */; };
 		FAA5280F2A6EA53D005F95B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA5280E2A6EA53D005F95B1 /* Assets.xcassets */; };
@@ -90,6 +93,9 @@
 		FA668B212A6FF6C5000C84B5 /* H2hViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H2hViewController.swift; sourceTree = "<group>"; };
 		FA668B242A6FF6FA000C84B5 /* H2hView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H2hView.swift; sourceTree = "<group>"; };
 		FA668B262A6FF867000C84B5 /* TeamH2hSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamH2hSubview.swift; sourceTree = "<group>"; };
+		FA668B292A700E54000C84B5 /* FixtureEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureEventsView.swift; sourceTree = "<group>"; };
+		FA668B2B2A700E68000C84B5 /* FixtureEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureEventsViewController.swift; sourceTree = "<group>"; };
+		FA668B2D2A700E7C000C84B5 /* FixtureEventsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureEventsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAA528022A6EA53B005F95B1 /* 365WorldWide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 365WorldWide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA528052A6EA53B005F95B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +227,16 @@
 			path = H2hScreen;
 			sourceTree = "<group>";
 		};
+		FA668B282A700E38000C84B5 /* FixtureEventsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FA668B292A700E54000C84B5 /* FixtureEventsView.swift */,
+				FA668B2B2A700E68000C84B5 /* FixtureEventsViewController.swift */,
+				FA668B2D2A700E7C000C84B5 /* FixtureEventsCollectionViewCell.swift */,
+			);
+			path = FixtureEventsScreen;
+			sourceTree = "<group>";
+		};
 		FAA527F92A6EA53B005F95B1 = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +273,7 @@
 		FAA528192A6EA573005F95B1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA668B282A700E38000C84B5 /* FixtureEventsScreen */,
 				FA668B1E2A6FF698000C84B5 /* H2hScreen */,
 				FA668B132A6FDD8F000C84B5 /* EventStatisticScreen */,
 				FA668B0A2A6FB548000C84B5 /* StandingsScreen */,
@@ -392,6 +409,7 @@
 				FA014E9A2A6EB75600043553 /* OnboardingCollectionViewCell.swift in Sources */,
 				FA668B272A6FF867000C84B5 /* TeamH2hSubview.swift in Sources */,
 				FAA528252A6EA67B005F95B1 /* Coordinator.swift in Sources */,
+				FA668B2E2A700E7C000C84B5 /* FixtureEventsCollectionViewCell.swift in Sources */,
 				FAA528262A6EA67B005F95B1 /* SavingService.swift in Sources */,
 				FA668AFC2A6F9895000C84B5 /* FixtureCollectionViewCell.swift in Sources */,
 				FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */,
@@ -420,7 +438,9 @@
 				FA668B202A6FF6B2000C84B5 /* H2hCollectionViewCell.swift in Sources */,
 				FA668B002A6FA38D000C84B5 /* DetailEventView.swift in Sources */,
 				FAA5282E2A6EA819005F95B1 /* Extentions+UIKIt.swift in Sources */,
+				FA668B2C2A700E68000C84B5 /* FixtureEventsViewController.swift in Sources */,
 				FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */,
+				FA668B2A2A700E54000C84B5 /* FixtureEventsView.swift in Sources */,
 				FA014E9D2A6EB76200043553 /* OnboardingViewController.swift in Sources */,
 				FA014E992A6EB75600043553 /* OnboardingView.swift in Sources */,
 				FAA5282C2A6EA7F4005F95B1 /* LoaderView.swift in Sources */,

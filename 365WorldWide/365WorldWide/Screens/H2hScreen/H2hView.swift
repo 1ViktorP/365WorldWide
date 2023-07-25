@@ -53,7 +53,6 @@ class H2hView: UIView {
         self.addSubview(collectionView)
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.isScrollEnabled = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(H2hCollectionViewCell.self, forCellWithReuseIdentifier: H2hCollectionViewCell.reuseIdentifier)
         
