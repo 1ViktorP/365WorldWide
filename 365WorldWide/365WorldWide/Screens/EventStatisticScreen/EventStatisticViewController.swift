@@ -19,6 +19,18 @@ class EventStatisticViewController: UIViewController {
          label.translatesAutoresizingMaskIntoConstraints = false
          return label
      }()
+    
+    private var activityIndicator: UIActivityIndicatorView = {
+       let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.color = .gray
+        activityIndicator.startAnimating()
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicator
+    }()
+    
+    private var viewModel: H2hViewModel!
+    private var teamCodes: TeamCodeViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

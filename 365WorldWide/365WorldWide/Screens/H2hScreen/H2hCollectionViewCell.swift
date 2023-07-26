@@ -15,7 +15,7 @@ class H2hCollectionViewCell: UICollectionViewCell {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.text = "name \n date"
+        label.text = ""
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .white
         label.numberOfLines = 2
@@ -71,9 +71,15 @@ class H2hCollectionViewCell: UICollectionViewCell {
         homeTeamView.teamNameLabel.text = viewModel.homeTeamName
         homeTeamView.teamIconImageView.kf.setImage(with: viewModel.homeTeamIcon)
         homeTeamView.scoreLabel.text = viewModel.homeTeamScore
+        if viewModel.homeTeamScore == "-1" {
+            homeTeamView.scoreLabel.text = ""
+        }
         awayTeamView.teamNameLabel.text = viewModel.awayTeamName
         awayTeamView.teamIconImageView.kf.setImage(with: viewModel.awayTeamIcon)
         awayTeamView.scoreLabel.text = viewModel.awayTeamScore
-        
+        if viewModel.awayTeamScore == "-1" {
+            awayTeamView.scoreLabel.text = ""
+        }
+        dateLabel.text = Date.formatHours(date: viewModel.date) + "\n" + Date.formatYear(date: viewModel.date)
     }
 }
