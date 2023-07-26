@@ -9,7 +9,7 @@ import UIKit
 
 class TeamView: UIView {
     
-    private let teamImageView: UIImageView = {
+    let teamImageView: UIImageView = {
      let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
      return imageView
@@ -45,7 +45,7 @@ class TeamView: UIView {
             teamImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             teamImageView.topAnchor.constraint(equalTo: topAnchor),
             
-            teamNameLabel.topAnchor.constraint(equalTo: teamImageView.bottomAnchor),
+            teamNameLabel.topAnchor.constraint(equalTo: teamImageView.bottomAnchor, constant: 4),
             teamNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             teamNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])

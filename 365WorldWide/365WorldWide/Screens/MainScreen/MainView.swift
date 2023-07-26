@@ -11,6 +11,7 @@ class MainView: UIView {
 
     var dateCollectionView: UICollectionView!
     var fixturesCollectionView: UICollectionView!
+    var calendarButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +31,13 @@ class MainView: UIView {
     
     private func setUp() {
         backgroundColor = .mainBGColor
+        addSubview(calendarButton)
+        calendarButton.setImage(UIImage(named: "calendarIcon"), for: .normal)
+        calendarButton.translatesAutoresizingMaskIntoConstraints = false
+        calendarButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        calendarButton.widthAnchor.constraint(equalToConstant: 48).isActive = true
+        calendarButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        calendarButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true
     }
     
     private func setUpCollectionView() {
@@ -56,7 +64,7 @@ class MainView: UIView {
         NSLayoutConstraint.activate([
             
             dateCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            dateCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            dateCollectionView.trailingAnchor.constraint(equalTo: calendarButton.leadingAnchor, constant: -16),
             dateCollectionView.heightAnchor.constraint(equalToConstant: 70),
             dateCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
             
@@ -91,7 +99,7 @@ class MainView: UIView {
                                               heightDimension: .fractionalHeight(1))
         let fullSizeItem = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(54),
+            widthDimension: .absolute(64),
             heightDimension: .fractionalHeight(1))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [fullSizeItem])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0)

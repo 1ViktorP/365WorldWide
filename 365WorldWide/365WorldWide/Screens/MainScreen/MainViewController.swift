@@ -10,8 +10,8 @@ import UIKit
 class MainViewController: UIViewController {
     
     private var mainView = MainView()
-//    private let dateViewModel = DateViewModel()
-//    private let mainViewModel = MainViewModel()
+    private let dateViewModel = DateViewModel()
+    private let mainViewModel = MainViewModel()
     private var coordinator: MainCoordinator!
     private var isFirstTime = true
    // let childVC = MenuViewController()
@@ -32,13 +32,25 @@ class MainViewController: UIViewController {
     }
     
     private func setUp() {
+        Task {
+            await mainViewModel.fetchFixturesByDate(date: Date.getToday)
+        }
+        mainViewModel.reloadData = { isAvailable in
+            if isAvailable {
+                self.activityIndicator.stopAnimating()
+                self.mainView.fixturesCollectionView.reloadData()
+            } else {
+                //add missing data label
+            }
+        }
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "All Events"
-       
+        dateViewModel.prepareDateCell(date: Date())
         mainView.dateCollectionView.dataSource = self
         mainView.dateCollectionView.delegate = self
         mainView.fixturesCollectionView.dataSource = self
         mainView.fixturesCollectionView.delegate = self
+        mainView.calendarButton.addTarget(self, action: #selector(didTapCalendarButton), for: .touchUpInside)
         view.addSubview(activityIndicator)
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityIndicator.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
@@ -53,6 +65,9 @@ class MainViewController: UIViewController {
         }
     }
 
+    @objc func didTapCalendarButton() {
+        
+    }
     
 //    func animateScrollTo() {
 //        UIView.animate(withDuration: 0.1, delay: 0) {
@@ -66,24 +81,26 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == mainView.dateCollectionView {
-            return 5// dateViewModel.dateCell.count
+            return dateViewModel.dateCell.count
         } else {
-            return 5//mainViewModel.isFiltered ? mainViewModel.filteredMathes.count : mainViewModel.matches.count
+            return mainViewModel.fixtures.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == mainView.dateCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateCollectionViewCell.reuseIdentifier, for: indexPath) as! DateCollectionViewCell
-//            if indexPath.row == dateViewModel.dateCell.count / 2 {
-//                cell.setUpiSSelected()
-//            }
-            //cell.textLabel.text = dateViewModel.dateCell[indexPath.row].date
-                return cell
+            if indexPath.row == dateViewModel.dateCell.count / 2 {
+                cell.setUpiSSelected()
+            }
+            cell.dateLabel.text = dateViewModel.dateCell[indexPath.row].date
+            cell.dayLabel.text =  dateViewModel.dateCell[indexPath.row].day
+            return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixtureCollectionViewCell.reuseIdentifier, for: indexPath) as! FixtureCollectionViewCell
+            cell.configure(with: mainViewModel.fixtures[indexPath.row])
             //cell.configure(with: mainViewModel.isFiltered ? mainViewModel.filteredMathes[indexPath.row] : mainViewModel.matches[indexPath.row])
-                return cell
+            return cell
         }
     }
     

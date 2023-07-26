@@ -49,6 +49,19 @@
 		FA668B362A701F4D000C84B5 /* LineUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B352A701F4D000C84B5 /* LineUpView.swift */; };
 		FA668B382A701F85000C84B5 /* LineUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B372A701F85000C84B5 /* LineUpViewController.swift */; };
 		FA8F4A4C2A70F2E9000D9924 /* LineUpHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A4B2A70F2E9000D9924 /* LineUpHeaderCollectionReusableView.swift */; };
+		FA8F4A572A710009000D9924 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A4F2A710009000D9924 /* NetworkManager.swift */; };
+		FA8F4A582A710009000D9924 /* EndpointParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A502A710009000D9924 /* EndpointParameters.swift */; };
+		FA8F4A592A710009000D9924 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A512A710009000D9924 /* Endpoint.swift */; };
+		FA8F4A5A2A710009000D9924 /* Leagues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A532A710009000D9924 /* Leagues.swift */; };
+		FA8F4A5B2A710009000D9924 /* LiveDataBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A542A710009000D9924 /* LiveDataBuffer.swift */; };
+		FA8F4A5C2A710009000D9924 /* PalyerStatisticsFromAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A552A710009000D9924 /* PalyerStatisticsFromAPI.swift */; };
+		FA8F4A5D2A710009000D9924 /* GameStatisticFromAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A562A710009000D9924 /* GameStatisticFromAPI.swift */; };
+		FA8F4A602A71007A000D9924 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FA8F4A5F2A71007A000D9924 /* Alamofire */; };
+		FA8F4A632A7100A0000D9924 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA8F4A622A7100A0000D9924 /* Kingfisher */; };
+		FA8F4A652A710187000D9924 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A642A710187000D9924 /* MainViewModel.swift */; };
+		FA8F4A672A7101AD000D9924 /* FixtureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A662A7101AD000D9924 /* FixtureCell.swift */; };
+		FA8F4A692A7109F4000D9924 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A682A7109F4000D9924 /* DateViewModel.swift */; };
+		FA8F4A6B2A710A5F000D9924 /* Extentions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A6A2A710A5F000D9924 /* Extentions+Date.swift */; };
 		FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528052A6EA53B005F95B1 /* AppDelegate.swift */; };
 		FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */; };
 		FAA5280F2A6EA53D005F95B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA5280E2A6EA53D005F95B1 /* Assets.xcassets */; };
@@ -106,6 +119,17 @@
 		FA668B352A701F4D000C84B5 /* LineUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineUpView.swift; sourceTree = "<group>"; };
 		FA668B372A701F85000C84B5 /* LineUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineUpViewController.swift; sourceTree = "<group>"; };
 		FA8F4A4B2A70F2E9000D9924 /* LineUpHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineUpHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		FA8F4A4F2A710009000D9924 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FA8F4A502A710009000D9924 /* EndpointParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointParameters.swift; sourceTree = "<group>"; };
+		FA8F4A512A710009000D9924 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		FA8F4A532A710009000D9924 /* Leagues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leagues.swift; sourceTree = "<group>"; };
+		FA8F4A542A710009000D9924 /* LiveDataBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataBuffer.swift; sourceTree = "<group>"; };
+		FA8F4A552A710009000D9924 /* PalyerStatisticsFromAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalyerStatisticsFromAPI.swift; sourceTree = "<group>"; };
+		FA8F4A562A710009000D9924 /* GameStatisticFromAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatisticFromAPI.swift; sourceTree = "<group>"; };
+		FA8F4A642A710187000D9924 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		FA8F4A662A7101AD000D9924 /* FixtureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureCell.swift; sourceTree = "<group>"; };
+		FA8F4A682A7109F4000D9924 /* DateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
+		FA8F4A6A2A710A5F000D9924 /* Extentions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extentions+Date.swift"; sourceTree = "<group>"; };
 		FAA528022A6EA53B005F95B1 /* 365WorldWide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 365WorldWide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA528052A6EA53B005F95B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +151,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA8F4A632A7100A0000D9924 /* Kingfisher in Frameworks */,
+				FA8F4A602A71007A000D9924 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +183,7 @@
 		FA014EA52A6EC5C400043553 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA8F4A662A7101AD000D9924 /* FixtureCell.swift */,
 				FA014EA72A6EC5D200043553 /* Settings.swift */,
 				FA014EA62A6EC5D100043553 /* TermsPolicy.swift */,
 			);
@@ -177,7 +204,9 @@
 				FA639CDC2A6EDAFF00432728 /* MainViewController.swift */,
 				FA639CDE2A6EDB1400432728 /* MainView.swift */,
 				FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */,
+				FA8F4A682A7109F4000D9924 /* DateViewModel.swift */,
 				FA668AFB2A6F9895000C84B5 /* FixtureCollectionViewCell.swift */,
+				FA8F4A642A710187000D9924 /* MainViewModel.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -259,6 +288,36 @@
 			path = LineUpScreen;
 			sourceTree = "<group>";
 		};
+		FA8F4A4D2A710009000D9924 /* NetworkModule */ = {
+			isa = PBXGroup;
+			children = (
+				FA8F4A4E2A710009000D9924 /* NetworkManager */,
+				FA8F4A522A710009000D9924 /* Model */,
+			);
+			path = NetworkModule;
+			sourceTree = "<group>";
+		};
+		FA8F4A4E2A710009000D9924 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				FA8F4A4F2A710009000D9924 /* NetworkManager.swift */,
+				FA8F4A502A710009000D9924 /* EndpointParameters.swift */,
+				FA8F4A512A710009000D9924 /* Endpoint.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		FA8F4A522A710009000D9924 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA8F4A532A710009000D9924 /* Leagues.swift */,
+				FA8F4A542A710009000D9924 /* LiveDataBuffer.swift */,
+				FA8F4A552A710009000D9924 /* PalyerStatisticsFromAPI.swift */,
+				FA8F4A562A710009000D9924 /* GameStatisticFromAPI.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FAA527F92A6EA53B005F95B1 = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +337,7 @@
 		FAA528042A6EA53B005F95B1 /* 365WorldWide */ = {
 			isa = PBXGroup;
 			children = (
+				FA8F4A4D2A710009000D9924 /* NetworkModule */,
 				FA639CE02A6EDBCF00432728 /* GeneralViews */,
 				FA014EA52A6EC5C400043553 /* Model */,
 				FAA5281C2A6EA5BF005F95B1 /* Extentions */,
@@ -333,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA5282D2A6EA819005F95B1 /* Extentions+UIKIt.swift */,
+				FA8F4A6A2A710A5F000D9924 /* Extentions+Date.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -371,6 +432,10 @@
 			dependencies = (
 			);
 			name = 365WorldWide;
+			packageProductDependencies = (
+				FA8F4A5F2A71007A000D9924 /* Alamofire */,
+				FA8F4A622A7100A0000D9924 /* Kingfisher */,
+			);
 			productName = 365WorldWide;
 			productReference = FAA528022A6EA53B005F95B1 /* 365WorldWide.app */;
 			productType = "com.apple.product-type.application";
@@ -399,6 +464,10 @@
 				Base,
 			);
 			mainGroup = FAA527F92A6EA53B005F95B1;
+			packageReferences = (
+				FA8F4A5E2A71007A000D9924 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FA8F4A612A7100A0000D9924 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = FAA528032A6EA53B005F95B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -427,12 +496,14 @@
 			files = (
 				FA668B152A6FDDB4000C84B5 /* EventStatisticView.swift in Sources */,
 				FA639CDD2A6EDAFF00432728 /* MainViewController.swift in Sources */,
+				FA8F4A582A710009000D9924 /* EndpointParameters.swift in Sources */,
 				FA014EA42A6EC5AE00043553 /* SettingsCollectionViewCell.swift in Sources */,
 				FA668B0C2A6FB648000C84B5 /* StandingsViewController.swift in Sources */,
 				FA014E9A2A6EB75600043553 /* OnboardingCollectionViewCell.swift in Sources */,
 				FA668B272A6FF867000C84B5 /* TeamH2hSubview.swift in Sources */,
 				FAA528252A6EA67B005F95B1 /* Coordinator.swift in Sources */,
 				FA668B2E2A700E7C000C84B5 /* FixtureEventsCollectionViewCell.swift in Sources */,
+				FA8F4A592A710009000D9924 /* Endpoint.swift in Sources */,
 				FAA528262A6EA67B005F95B1 /* SavingService.swift in Sources */,
 				FA668AFC2A6F9895000C84B5 /* FixtureCollectionViewCell.swift in Sources */,
 				FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */,
@@ -452,24 +523,33 @@
 				FAA5282A2A6EA787005F95B1 /* LoaderViewController.swift in Sources */,
 				FA014E9B2A6EB75600043553 /* OnboardingViewModel.swift in Sources */,
 				FA668B342A701F23000C84B5 /* FormationCollectionViewCell.swift in Sources */,
+				FA8F4A672A7101AD000D9924 /* FixtureCell.swift in Sources */,
 				FA014EAC2A6EC93600043553 /* SavedEventsViewController.swift in Sources */,
 				FA014EA32A6EC5AE00043553 /* SettingsViewController.swift in Sources */,
 				FA668B172A6FDDC9000C84B5 /* EventStatisticViewController.swift in Sources */,
 				FAA528282A6EA67B005F95B1 /* Observable.swift in Sources */,
 				FA668B362A701F4D000C84B5 /* LineUpView.swift in Sources */,
 				FAA528242A6EA67B005F95B1 /* MainCoordinator.swift in Sources */,
+				FA8F4A652A710187000D9924 /* MainViewModel.swift in Sources */,
 				FA668B092A6FAAB8000C84B5 /* LabelsStackView.swift in Sources */,
+				FA8F4A572A710009000D9924 /* NetworkManager.swift in Sources */,
 				FA668B122A6FD904000C84B5 /* TopDetailView.swift in Sources */,
+				FA8F4A5A2A710009000D9924 /* Leagues.swift in Sources */,
 				FAA528272A6EA67B005F95B1 /* SaveManager.swift in Sources */,
 				FA668B102A6FB7CF000C84B5 /* StandingsCollectionViewCell.swift in Sources */,
 				FA639CE62A6EDCC300432728 /* TeamView.swift in Sources */,
+				FA8F4A5C2A710009000D9924 /* PalyerStatisticsFromAPI.swift in Sources */,
 				FA668B202A6FF6B2000C84B5 /* H2hCollectionViewCell.swift in Sources */,
 				FA668B002A6FA38D000C84B5 /* DetailEventView.swift in Sources */,
+				FA8F4A6B2A710A5F000D9924 /* Extentions+Date.swift in Sources */,
+				FA8F4A5B2A710009000D9924 /* LiveDataBuffer.swift in Sources */,
 				FAA5282E2A6EA819005F95B1 /* Extentions+UIKIt.swift in Sources */,
 				FA668B2C2A700E68000C84B5 /* FixtureEventsViewController.swift in Sources */,
 				FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */,
 				FA668B2A2A700E54000C84B5 /* FixtureEventsView.swift in Sources */,
 				FA014E9D2A6EB76200043553 /* OnboardingViewController.swift in Sources */,
+				FA8F4A5D2A710009000D9924 /* GameStatisticFromAPI.swift in Sources */,
+				FA8F4A692A7109F4000D9924 /* DateViewModel.swift in Sources */,
 				FA014E992A6EB75600043553 /* OnboardingView.swift in Sources */,
 				FAA5282C2A6EA7F4005F95B1 /* LoaderView.swift in Sources */,
 				FA639CE52A6EDCC300432728 /* DateCollectionViewCell.swift in Sources */,
@@ -692,6 +772,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA8F4A5E2A71007A000D9924 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		FA8F4A612A7100A0000D9924 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA8F4A5F2A71007A000D9924 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA8F4A5E2A71007A000D9924 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		FA8F4A622A7100A0000D9924 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA8F4A612A7100A0000D9924 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAA527FA2A6EA53B005F95B1 /* Project object */;
 }
