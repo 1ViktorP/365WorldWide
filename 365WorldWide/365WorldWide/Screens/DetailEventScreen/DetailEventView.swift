@@ -79,7 +79,7 @@ class DetailEventView: UIView {
             topImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             topImageView.heightAnchor.constraint(equalToConstant: 337),
             
-            fixtureView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 25),
+            fixtureView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
             fixtureView.leadingAnchor.constraint(equalTo: leadingAnchor),
             fixtureView.trailingAnchor.constraint(equalTo: trailingAnchor),
             fixtureView.heightAnchor.constraint(equalToConstant: 125),

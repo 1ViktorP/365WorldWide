@@ -282,6 +282,7 @@ struct Team: Codable {
     let logo: String?
     let country: String?
     let founded: Int?
+    let code: String?
 }
 
 struct Players: Codable {

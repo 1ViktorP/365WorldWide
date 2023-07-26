@@ -42,10 +42,15 @@ class MainCoordinator: Coordinator {
 //        view.window?.makeKeyAndVisible()
 //    }
 //
-//    func openDetailVC() {
-//        let detailVC = DetailViewController()
-//        navigationController.pushViewController(detailVC, animated: true)
-//    }
+    func openDetailVC(fixture: FixtureCellViewModel) {
+        let detailVC = DetailEventViewController(fixture: fixture)
+        navigationController.pushViewController(detailVC, animated: true)
+    }
+    
+    func openH2HVC(codes: TeamCodeViewModel,fixture: FixtureCellViewModel) {
+        let h2hVC = H2hViewController(fixture: fixture, codes: codes)
+        navigationController.pushViewController(h2hVC, animated: true)
+    }
 
 
 //    func openSettingsVC() {

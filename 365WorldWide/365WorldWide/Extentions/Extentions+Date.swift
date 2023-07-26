@@ -76,11 +76,11 @@ extension Date {
         return dateFormatter.string(from: Date())
     }
     
-    static func formatDateForEventsFavoritesCell(date: Date) -> String {
+    static func formatDateForDetailVC(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "MMM dd, HH:mm"
+        dateFormatter.dateFormat = "d, MMMM, HH:mm"
         return dateFormatter.string(from: date)
     }
     
