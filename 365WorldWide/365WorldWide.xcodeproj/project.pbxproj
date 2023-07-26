@@ -17,7 +17,7 @@
 		FA014EA82A6EC5D200043553 /* TermsPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EA62A6EC5D100043553 /* TermsPolicy.swift */; };
 		FA014EA92A6EC5D200043553 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EA72A6EC5D200043553 /* Settings.swift */; };
 		FA014EAC2A6EC93600043553 /* SavedEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */; };
-		FA639CDD2A6EDAFF00432728 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CDC2A6EDAFF00432728 /* MainViewController.swift */; };
+		FA639CDD2A6EDAFF00432728 /* AllEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CDC2A6EDAFF00432728 /* AllEventsViewController.swift */; };
 		FA639CDF2A6EDB1400432728 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CDE2A6EDB1400432728 /* MainView.swift */; };
 		FA639CE42A6EDCC300432728 /* FixtureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CE12A6EDCC300432728 /* FixtureView.swift */; };
 		FA639CE52A6EDCC300432728 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */; };
@@ -48,6 +48,7 @@
 		FA668B342A701F23000C84B5 /* FormationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B332A701F23000C84B5 /* FormationCollectionViewCell.swift */; };
 		FA668B362A701F4D000C84B5 /* LineUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B352A701F4D000C84B5 /* LineUpView.swift */; };
 		FA668B382A701F85000C84B5 /* LineUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B372A701F85000C84B5 /* LineUpViewController.swift */; };
+		FA85AB222A71466D00CCE942 /* H2hViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85AB212A71466D00CCE942 /* H2hViewModel.swift */; };
 		FA8F4A4C2A70F2E9000D9924 /* LineUpHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A4B2A70F2E9000D9924 /* LineUpHeaderCollectionReusableView.swift */; };
 		FA8F4A572A710009000D9924 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A4F2A710009000D9924 /* NetworkManager.swift */; };
 		FA8F4A582A710009000D9924 /* EndpointParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A502A710009000D9924 /* EndpointParameters.swift */; };
@@ -87,7 +88,7 @@
 		FA014EA62A6EC5D100043553 /* TermsPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsPolicy.swift; sourceTree = "<group>"; };
 		FA014EA72A6EC5D200043553 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedEventsViewController.swift; sourceTree = "<group>"; };
-		FA639CDC2A6EDAFF00432728 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FA639CDC2A6EDAFF00432728 /* AllEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsViewController.swift; sourceTree = "<group>"; };
 		FA639CDE2A6EDB1400432728 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FA639CE12A6EDCC300432728 /* FixtureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureView.swift; sourceTree = "<group>"; };
 		FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		FA668B332A701F23000C84B5 /* FormationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA668B352A701F4D000C84B5 /* LineUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineUpView.swift; sourceTree = "<group>"; };
 		FA668B372A701F85000C84B5 /* LineUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineUpViewController.swift; sourceTree = "<group>"; };
+		FA85AB212A71466D00CCE942 /* H2hViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H2hViewModel.swift; sourceTree = "<group>"; };
 		FA8F4A4B2A70F2E9000D9924 /* LineUpHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineUpHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FA8F4A4F2A710009000D9924 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FA8F4A502A710009000D9924 /* EndpointParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointParameters.swift; sourceTree = "<group>"; };
@@ -201,7 +203,7 @@
 		FA639CDB2A6EDAED00432728 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				FA639CDC2A6EDAFF00432728 /* MainViewController.swift */,
+				FA639CDC2A6EDAFF00432728 /* AllEventsViewController.swift */,
 				FA639CDE2A6EDB1400432728 /* MainView.swift */,
 				FA639CE22A6EDCC300432728 /* DateCollectionViewCell.swift */,
 				FA8F4A682A7109F4000D9924 /* DateViewModel.swift */,
@@ -262,6 +264,7 @@
 				FA668B212A6FF6C5000C84B5 /* H2hViewController.swift */,
 				FA668B242A6FF6FA000C84B5 /* H2hView.swift */,
 				FA668B262A6FF867000C84B5 /* TeamH2hSubview.swift */,
+				FA85AB212A71466D00CCE942 /* H2hViewModel.swift */,
 			);
 			path = H2hScreen;
 			sourceTree = "<group>";
@@ -495,7 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA668B152A6FDDB4000C84B5 /* EventStatisticView.swift in Sources */,
-				FA639CDD2A6EDAFF00432728 /* MainViewController.swift in Sources */,
+				FA639CDD2A6EDAFF00432728 /* AllEventsViewController.swift in Sources */,
 				FA8F4A582A710009000D9924 /* EndpointParameters.swift in Sources */,
 				FA014EA42A6EC5AE00043553 /* SettingsCollectionViewCell.swift in Sources */,
 				FA668B0C2A6FB648000C84B5 /* StandingsViewController.swift in Sources */,
@@ -521,6 +524,7 @@
 				FA668B382A701F85000C84B5 /* LineUpViewController.swift in Sources */,
 				FA014EA22A6EC5AE00043553 /* TermsViewController.swift in Sources */,
 				FAA5282A2A6EA787005F95B1 /* LoaderViewController.swift in Sources */,
+				FA85AB222A71466D00CCE942 /* H2hViewModel.swift in Sources */,
 				FA014E9B2A6EB75600043553 /* OnboardingViewModel.swift in Sources */,
 				FA668B342A701F23000C84B5 /* FormationCollectionViewCell.swift in Sources */,
 				FA8F4A672A7101AD000D9924 /* FixtureCell.swift in Sources */,

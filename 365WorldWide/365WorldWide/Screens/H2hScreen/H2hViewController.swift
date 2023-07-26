@@ -19,11 +19,36 @@ class H2hViewController: UIViewController {
          label.translatesAutoresizingMaskIntoConstraints = false
          return label
      }()
-
+    
+    private var activityIndicator: UIActivityIndicatorView = {
+       let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.color = .gray
+        activityIndicator.startAnimating()
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicator
+    }()
+    
+    private var viewModel: H2hViewModel!
+    private var teamCodes: TeamCodeViewModel!
+    
+    init(fixture: FixtureCellViewModel, codes: TeamCodeViewModel) {
+        viewModel = H2hViewModel(fixture: fixture)
+        teamCodes = codes
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view = h2hView
+        
         setUp()
+        
+        activityIndicator.startAnimating()
     }
     
     private func setUp() {
@@ -33,12 +58,26 @@ class H2hViewController: UIViewController {
         
         h2hView.collectionView.dataSource = self
         h2hView.collectionView.delegate = self
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
+        
+        viewModel.reloadData = { isAvailable in
+            if isAvailable {
+                self.activityIndicator.stopAnimating()
+                self.h2hView.collectionView.reloadData()
+            } else {
+                //add missing data label
+            }
+        }
+        
     }
 }
 
 extension H2hViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.h2HCellViewModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

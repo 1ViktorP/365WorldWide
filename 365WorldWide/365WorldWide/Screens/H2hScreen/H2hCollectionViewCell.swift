@@ -65,4 +65,15 @@ class H2hCollectionViewCell: UICollectionViewCell {
             bottomLine.heightAnchor.constraint(equalToConstant: 1),
         ])
     }
+    
+    func configure(with viewModel: FixtureCellViewModel) {
+        
+        homeTeamView.teamNameLabel.text = viewModel.homeTeamName
+        homeTeamView.teamIconImageView.kf.setImage(with: viewModel.homeTeamIcon)
+        homeTeamView.scoreLabel.text = viewModel.homeTeamScore
+        awayTeamView.teamNameLabel.text = viewModel.awayTeamName
+        awayTeamView.teamIconImageView.kf.setImage(with: viewModel.awayTeamIcon)
+        awayTeamView.scoreLabel.text = viewModel.awayTeamScore
+        
+    }
 }

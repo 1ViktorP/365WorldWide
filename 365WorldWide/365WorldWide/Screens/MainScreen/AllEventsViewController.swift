@@ -7,14 +7,14 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class AllEventsViewController: UIViewController {
     
     private var mainView = MainView()
     private let dateViewModel = DateViewModel()
     private let mainViewModel = MainViewModel()
-    private var coordinator: MainCoordinator!
+    private var coordinator: MainCoordinator?
     private var isFirstTime = true
-   // let childVC = MenuViewController()
+    //let childVC = MenuViewController()
     private var activityIndicator: UIActivityIndicatorView = {
        let activityIndicator = UIActivityIndicatorView()
         activityIndicator.style = .large
@@ -31,6 +31,7 @@ class MainViewController: UIViewController {
         activityIndicator.startAnimating()
     }
     
+  
     private func setUp() {
         Task {
             await mainViewModel.fetchFixturesByDate(date: Date.getToday)
@@ -43,6 +44,7 @@ class MainViewController: UIViewController {
                 //add missing data label
             }
         }
+       
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "All Events"
         dateViewModel.prepareDateCell(date: Date())
@@ -59,7 +61,6 @@ class MainViewController: UIViewController {
     }
    
     override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
         if isFirstTime {
            // animateScrollTo()
         }
@@ -78,7 +79,7 @@ class MainViewController: UIViewController {
     
 }
 
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AllEventsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == mainView.dateCollectionView {
             return dateViewModel.dateCell.count
@@ -99,14 +100,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixtureCollectionViewCell.reuseIdentifier, for: indexPath) as! FixtureCollectionViewCell
             cell.configure(with: mainViewModel.fixtures[indexPath.row])
-            //cell.configure(with: mainViewModel.isFiltered ? mainViewModel.filteredMathes[indexPath.row] : mainViewModel.matches[indexPath.row])
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         UIDevice.vibrate()
-//        if collectionView == mainView.dateCollectionView {
+        if collectionView == mainView.dateCollectionView {
 //            activityIndicator.startAnimating()
 //            mainViewModel.fetchAllMatches(date: dateViewModel.dateCell[indexPath.row].dateForURL)
 //            mainView.fixturesCollectionView.reloadData()
@@ -116,8 +116,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 //                cell.setUpIsUnselected()
 //                isFirstTime = false
 //            }
-//        } else {
-//            coordinator.openFixtureVC(fixtureData:  mainViewModel.isFiltered ? mainViewModel.filteredMathes[indexPath.row] : mainViewModel.matches[indexPath.row])
-//        }
+        } else {
+            coordinator?.openDetailVC(fixture: mainViewModel.fixtures[indexPath.row])
+        }
     }
 }
