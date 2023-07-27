@@ -38,6 +38,14 @@ class LineUpCollectionViewCell: UICollectionViewCell {
         setUp()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        homeTeamPositionLabel.layer.cornerRadius = 6
+        homeTeamPositionLabel.clipsToBounds = true
+        awayTeamPositionLabel.layer.cornerRadius = 6
+        awayTeamPositionLabel.clipsToBounds = true
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -46,8 +54,6 @@ class LineUpCollectionViewCell: UICollectionViewCell {
         addSubview(labelsView)
         labelsView.leftLabel.font = .systemFont(ofSize: 12, weight: .regular)
         labelsView.rightLabel.font = .systemFont(ofSize: 12, weight: .regular)
-        homeTeamPositionLabel.layer.cornerRadius = 12
-        awayTeamPositionLabel.layer.cornerRadius = 12
         
         let positionStack = UIStackView(arrangedSubviews: [homeTeamPositionLabel, awayTeamPositionLabel])
         positionStack.axis = .horizontal
@@ -62,6 +68,28 @@ class LineUpCollectionViewCell: UICollectionViewCell {
         
         homeTeamPositionLabel.widthAnchor.constraint(equalToConstant: 28).isActive = true
         homeTeamPositionLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        
+    }
+    
+    func configure(with viewModel: LineUpCellViewModel) {
+        labelsView.leftLabel.text = viewModel.playerNameHomeTeam
+        labelsView.rightLabel.text = viewModel.playerNameAwayTeam
+        homeTeamPositionLabel.text = viewModel.playerPositioHomeTeam
+        awayTeamPositionLabel.text = viewModel.playerPositioAwayTeam
+        homeTeamPositionLabel.backgroundColor = getColor(pos: viewModel.playerPositioHomeTeam)
+        awayTeamPositionLabel.backgroundColor = getColor(pos: viewModel.playerPositioAwayTeam)
+    }
+    
+    func getColor(pos: String) -> UIColor {
+        switch pos {
+        case "G":
+            return UIColor(red: 0.3569, green: 0.7333, blue: 0.5255, alpha: 1.0)
+        case "D":
+            return UIColor(red: 0.4549, green: 0.3569, blue: 0.7333, alpha: 1.0)
+        case "M":
+            return UIColor(red: 1, green: 0.8824, blue: 0.2745, alpha: 1.0)
+        case "F":
+            return UIColor(red: 0.898, green: 0.3059, blue: 0.2667, alpha: 1.0)
+        default: return .white
+        }
     }
 }

@@ -93,6 +93,14 @@ extension StandingsViewController: UICollectionViewDataSource, UICollectionViewD
             cell.ptsLabel.textColor = .mainYellowColor
         } else {
             cell.configure(with: viewModel.standingsList[indexPath.row - 1])
+            switch indexPath.row {
+            case 1: cell.imageView.image = UIImage(systemName: "circle.fill")?.withTintColor(UIColor(red: 0.3569, green: 0.7333, blue: 0.5255, alpha: 1.0), renderingMode: .alwaysOriginal)
+            case 2: cell.imageView.image = UIImage(systemName: "circle.fill")?.withTintColor(UIColor(red: 0.2627, green: 0.5961, blue: 0.9686, alpha: 1.0), renderingMode: .alwaysOriginal)
+            case 3: cell.imageView.image = UIImage(systemName: "circle.fill")?.withTintColor(UIColor(red: 0.2627, green: 0.5961, blue: 0.9686, alpha: 1.0), renderingMode: .alwaysOriginal)
+            case 4: cell.imageView.image = UIImage(systemName: "circle.fill")?.withTintColor(UIColor(red: 0.2627, green: 0.5961, blue: 0.9686, alpha: 1.0), renderingMode: .alwaysOriginal)
+            case 5: cell.imageView.image = UIImage(systemName: "circle.fill")?.withTintColor(UIColor(red: 0.9686, green: 0.6863, blue: 0.2627, alpha: 1.0) , renderingMode: .alwaysOriginal)
+            default: break
+            }
         }
         return cell
     }

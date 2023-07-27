@@ -66,6 +66,11 @@ class MainCoordinator: Coordinator {
         let standingsVC = StandingsViewController(fixture: fixture, codes: codes)
         navigationController.pushViewController(standingsVC, animated: true)
     }
+    
+    func openLineUpVC(codes: TeamCodeViewModel,fixture: FixtureCellViewModel) {
+        let lineUpVC = LineUpViewController(fixture: fixture, codes: codes)
+        navigationController.pushViewController(lineUpVC, animated: true)
+    }
 
     func openSavedEventsVC() {
         let statVC = SavedEventsViewController()

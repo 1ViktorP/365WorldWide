@@ -315,6 +315,7 @@ struct Player: Codable, Hashable {
     let lastname: String?
     let height: String?
     let weight: String?
+    let pos: String?
 }
 
 struct Birth: Codable {

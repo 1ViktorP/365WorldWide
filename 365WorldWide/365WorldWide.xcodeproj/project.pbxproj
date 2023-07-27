@@ -66,6 +66,7 @@
 		FA8F4A692A7109F4000D9924 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A682A7109F4000D9924 /* DateViewModel.swift */; };
 		FA8F4A6B2A710A5F000D9924 /* Extentions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A6A2A710A5F000D9924 /* Extentions+Date.swift */; };
 		FAA2FF592A72405900FA160C /* StandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2FF582A72405900FA160C /* StandingsViewModel.swift */; };
+		FAA2FF5B2A724B4B00FA160C /* LineUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2FF5A2A724B4B00FA160C /* LineUpViewModel.swift */; };
 		FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528052A6EA53B005F95B1 /* AppDelegate.swift */; };
 		FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */; };
 		FAA5280F2A6EA53D005F95B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA5280E2A6EA53D005F95B1 /* Assets.xcassets */; };
@@ -138,6 +139,7 @@
 		FA8F4A682A7109F4000D9924 /* DateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
 		FA8F4A6A2A710A5F000D9924 /* Extentions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extentions+Date.swift"; sourceTree = "<group>"; };
 		FAA2FF582A72405900FA160C /* StandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewModel.swift; sourceTree = "<group>"; };
+		FAA2FF5A2A724B4B00FA160C /* LineUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineUpViewModel.swift; sourceTree = "<group>"; };
 		FAA528022A6EA53B005F95B1 /* 365WorldWide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 365WorldWide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA528052A6EA53B005F95B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				FA668B352A701F4D000C84B5 /* LineUpView.swift */,
 				FA668B372A701F85000C84B5 /* LineUpViewController.swift */,
 				FA8F4A4B2A70F2E9000D9924 /* LineUpHeaderCollectionReusableView.swift */,
+				FAA2FF5A2A724B4B00FA160C /* LineUpViewModel.swift */,
 			);
 			path = LineUpScreen;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				FA668B032A6FA3B8000C84B5 /* DetailEventViewController.swift in Sources */,
 				FA668B072A6FA8B2000C84B5 /* DetailEventViewModel.swift in Sources */,
 				FA668B252A6FF6FA000C84B5 /* H2hView.swift in Sources */,
+				FAA2FF5B2A724B4B00FA160C /* LineUpViewModel.swift in Sources */,
 				FA668B382A701F85000C84B5 /* LineUpViewController.swift in Sources */,
 				FA014EA22A6EC5AE00043553 /* TermsViewController.swift in Sources */,
 				FAA5282A2A6EA787005F95B1 /* LoaderViewController.swift in Sources */,
