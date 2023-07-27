@@ -103,11 +103,12 @@ class EventStatisticCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-//    func configure(with viewModel: FixtureStatCellViewModel) {
-//        titleLabel.text = viewModel.type
-//        homeTeamStatLabel.text = viewModel.homeTeamValue
-//        awayTeamStatLabel.text = viewModel.awayTeamValue
-//        progressView.progress = viewModel.progressHomeTeam
-//    }
+    func configure(with viewModel: FixtureStatCellViewModel) {
+        titleLabel.text = viewModel.type
+        homeTeamStatLabel.text = viewModel.homeTeamValue
+        awayTeamStatLabel.text = viewModel.awayTeamValue
+        homeProgressView.progress = viewModel.progressHomeTeam
+        awayProgressView.progress = viewModel.progressAwayTeam
+    }
 }
 

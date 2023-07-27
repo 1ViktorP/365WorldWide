@@ -1,5 +1,5 @@
 //
-//  FixtureEventsViewController.swift
+//  EventStatisticViewController.swift
 //  365WorldWide
 //
 //  Created by MacBook on 25.07.2023.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class FixtureEventsViewController: UIViewController {
+class FixtureStatisticViewController: UIViewController {
 
-    private let fixtureView = FixtureEventsView()
+    private let statView = FixtureStatisticView()
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .semibold)
          label.textColor = .white
-         label.text = "Events"
+         label.text = "Statistic"
          label.textAlignment = .center
          label.translatesAutoresizingMaskIntoConstraints = false
          return label
@@ -29,11 +29,11 @@ class FixtureEventsViewController: UIViewController {
         return activityIndicator
     }()
     
-    private var viewModel: FixtureEventsViewModel!
+    private var viewModel: FixtureStatViewModel!
     private var teamCodes: TeamCodeViewModel!
-
+    
     init(fixture: FixtureCellViewModel, codes: TeamCodeViewModel) {
-        viewModel = FixtureEventsViewModel(fixture: fixture)
+        viewModel = FixtureStatViewModel(fixture: fixture)
         teamCodes = codes
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,7 +44,7 @@ class FixtureEventsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = fixtureView
+        view = statView
         setUp()
     }
     
@@ -53,8 +53,8 @@ class FixtureEventsViewController: UIViewController {
         navigationController?.navigationItem.backButtonTitle = "Detail"
         navigationItem.titleView = titleLabel
         
-        fixtureView.collectionView.dataSource = self
-        fixtureView.collectionView.delegate = self
+        statView.collectionView.dataSource = self
+        statView.collectionView.delegate = self
         
         view.addSubview(activityIndicator)
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -63,22 +63,40 @@ class FixtureEventsViewController: UIViewController {
         viewModel.reloadData = { isAvailable in
             if isAvailable {
                 self.activityIndicator.stopAnimating()
-                self.fixtureView.collectionView.reloadData()
+                self.statView.collectionView.reloadData()
             } else {
                 //add missing data label
             }
         }
-        fixtureView.topBGView.configure(with: viewModel.fixture, codes: teamCodes)
+        statView.topBGView.configure(with: viewModel.fixture, codes: teamCodes)
     }
 }
-extension FixtureEventsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension FixtureStatisticViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.events.count
+        if section == 0 {
+            return 1
+        } else {
+            return viewModel.fixtureStat.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixtureEventsCollectionViewCell.reuseIdentifier, for: indexPath) as! FixtureEventsCollectionViewCell
-        cell.configure(with: viewModel.events[indexPath.row])
-        return cell
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BallPossesionCollectionViewCell.reuseIdentifier, for: indexPath) as! BallPossesionCollectionViewCell
+            if let ballPossesion = viewModel.ballPossesion {
+                cell.configure(with: ballPossesion)
+            }
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventStatisticCollectionViewCell.reuseIdentifier, for: indexPath) as! EventStatisticCollectionViewCell
+            cell.configure(with: viewModel.fixtureStat[indexPath.row])
+            return cell
+        }
     }
+    
+    
 }

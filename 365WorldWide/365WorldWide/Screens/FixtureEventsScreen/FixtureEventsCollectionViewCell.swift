@@ -15,7 +15,7 @@ class FixtureEventsCollectionViewCell: UICollectionViewCell {
     let centerLine = UIView()
     
     let minuteLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.text = "84"
@@ -26,7 +26,7 @@ class FixtureEventsCollectionViewCell: UICollectionViewCell {
     }()
     
     let homeTeamFirstEvent: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.text = "first event"
@@ -36,7 +36,7 @@ class FixtureEventsCollectionViewCell: UICollectionViewCell {
     }()
     
     let homeTeamSecondEvent: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.text = "second event"
@@ -46,7 +46,7 @@ class FixtureEventsCollectionViewCell: UICollectionViewCell {
     }()
     
     let awayTeamFirstEvent: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.text = "first event"
@@ -56,7 +56,7 @@ class FixtureEventsCollectionViewCell: UICollectionViewCell {
     }()
     
     let awayTeamSecondEvent: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.text = "second event"
@@ -64,7 +64,7 @@ class FixtureEventsCollectionViewCell: UICollectionViewCell {
         label.textColor = .white.withAlphaComponent(0.5)
         return label
     }()
-   
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
@@ -92,13 +92,13 @@ class FixtureEventsCollectionViewCell: UICollectionViewCell {
         centerLine.translatesAutoresizingMaskIntoConstraints = false
         minuteLabel.layer.cornerRadius = 12
         minuteLabel.clipsToBounds = true
-      
+        
         NSLayoutConstraint.activate([
             minuteLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             minuteLabel.topAnchor.constraint(equalTo: topAnchor),
             minuteLabel.heightAnchor.constraint(equalToConstant: 26),
             minuteLabel.widthAnchor.constraint(equalToConstant: 44),
-                        
+            
             homeTeamFirstEvent.topAnchor.constraint(equalTo: topAnchor),
             homeTeamFirstEvent.trailingAnchor.constraint(equalTo: homeEventIconImageView.leadingAnchor, constant: -7),
             
@@ -127,4 +127,19 @@ class FixtureEventsCollectionViewCell: UICollectionViewCell {
             centerLine.widthAnchor.constraint(equalToConstant: 1),
         ])
     }
+    
+    func configure(with viewModel: EventsCellViewModel) {
+        minuteLabel.text = viewModel.homeTeamMinute ?? ""
+        if viewModel.homeTeamMinute == "" {
+            minuteLabel.text = viewModel.awayTeamMinute
+        }
+        homeEventIconImageView.image = viewModel.homeTeamEventIcon
+        homeTeamFirstEvent.text = viewModel.homeTeamFirstEventName
+        homeTeamSecondEvent.text = viewModel.homeTeamSecondEventName
+       
+        awayEventIconImageView.image = viewModel.awayTeamEventIcon
+        awayTeamFirstEvent.text = viewModel.awayTeamFirstEventName
+        awayTeamSecondEvent.text = viewModel.awayTeamSecondEventName
+    }
 }
+            

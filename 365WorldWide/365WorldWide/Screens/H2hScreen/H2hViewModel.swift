@@ -10,8 +10,9 @@ import Foundation
 class H2hViewModel {
     var h2HCellViewModel: [FixtureCellViewModel] = []
     var reloadData: ( @MainActor (Bool)->Void) = { _ in }
-    
+    var fixture: FixtureCellViewModel
     init(fixture: FixtureCellViewModel) {
+        self.fixture = fixture
         Task {
             await fetchFixturesH2H(h2hHome: fixture.homeTeamId, h2hAway: fixture.awayTeamId)
         }

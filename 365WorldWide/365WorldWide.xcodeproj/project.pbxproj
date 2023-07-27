@@ -17,6 +17,8 @@
 		FA014EA82A6EC5D200043553 /* TermsPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EA62A6EC5D100043553 /* TermsPolicy.swift */; };
 		FA014EA92A6EC5D200043553 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EA72A6EC5D200043553 /* Settings.swift */; };
 		FA014EAC2A6EC93600043553 /* SavedEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */; };
+		FA39C25B2A717C89006E2626 /* FixtureEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39C25A2A717C89006E2626 /* FixtureEventsViewModel.swift */; };
+		FA39C25D2A7232E6006E2626 /* FixtureStatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39C25C2A7232E5006E2626 /* FixtureStatViewModel.swift */; };
 		FA639CDD2A6EDAFF00432728 /* AllEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CDC2A6EDAFF00432728 /* AllEventsViewController.swift */; };
 		FA639CDF2A6EDB1400432728 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CDE2A6EDB1400432728 /* MainView.swift */; };
 		FA639CE42A6EDCC300432728 /* FixtureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CE12A6EDCC300432728 /* FixtureView.swift */; };
@@ -32,8 +34,8 @@
 		FA668B0E2A6FB733000C84B5 /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B0D2A6FB733000C84B5 /* StandingsView.swift */; };
 		FA668B102A6FB7CF000C84B5 /* StandingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B0F2A6FB7CF000C84B5 /* StandingsCollectionViewCell.swift */; };
 		FA668B122A6FD904000C84B5 /* TopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B112A6FD904000C84B5 /* TopDetailView.swift */; };
-		FA668B152A6FDDB4000C84B5 /* EventStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B142A6FDDB4000C84B5 /* EventStatisticView.swift */; };
-		FA668B172A6FDDC9000C84B5 /* EventStatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B162A6FDDC9000C84B5 /* EventStatisticViewController.swift */; };
+		FA668B152A6FDDB4000C84B5 /* FixtureStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B142A6FDDB4000C84B5 /* FixtureStatisticView.swift */; };
+		FA668B172A6FDDC9000C84B5 /* FixtureStatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B162A6FDDC9000C84B5 /* FixtureStatisticViewController.swift */; };
 		FA668B192A6FDE22000C84B5 /* EventStatisticCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B182A6FDE22000C84B5 /* EventStatisticCollectionViewCell.swift */; };
 		FA668B1B2A6FEA10000C84B5 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B1A2A6FEA10000C84B5 /* CircularProgressView.swift */; };
 		FA668B1D2A6FED8E000C84B5 /* BallPossesionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA668B1C2A6FED8E000C84B5 /* BallPossesionCollectionViewCell.swift */; };
@@ -88,6 +90,8 @@
 		FA014EA62A6EC5D100043553 /* TermsPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsPolicy.swift; sourceTree = "<group>"; };
 		FA014EA72A6EC5D200043553 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedEventsViewController.swift; sourceTree = "<group>"; };
+		FA39C25A2A717C89006E2626 /* FixtureEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureEventsViewModel.swift; sourceTree = "<group>"; };
+		FA39C25C2A7232E5006E2626 /* FixtureStatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureStatViewModel.swift; sourceTree = "<group>"; };
 		FA639CDC2A6EDAFF00432728 /* AllEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsViewController.swift; sourceTree = "<group>"; };
 		FA639CDE2A6EDB1400432728 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FA639CE12A6EDCC300432728 /* FixtureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureView.swift; sourceTree = "<group>"; };
@@ -103,8 +107,8 @@
 		FA668B0D2A6FB733000C84B5 /* StandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsView.swift; sourceTree = "<group>"; };
 		FA668B0F2A6FB7CF000C84B5 /* StandingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA668B112A6FD904000C84B5 /* TopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDetailView.swift; sourceTree = "<group>"; };
-		FA668B142A6FDDB4000C84B5 /* EventStatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStatisticView.swift; sourceTree = "<group>"; };
-		FA668B162A6FDDC9000C84B5 /* EventStatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStatisticViewController.swift; sourceTree = "<group>"; };
+		FA668B142A6FDDB4000C84B5 /* FixtureStatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureStatisticView.swift; sourceTree = "<group>"; };
+		FA668B162A6FDDC9000C84B5 /* FixtureStatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureStatisticViewController.swift; sourceTree = "<group>"; };
 		FA668B182A6FDE22000C84B5 /* EventStatisticCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStatisticCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA668B1A2A6FEA10000C84B5 /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		FA668B1C2A6FED8E000C84B5 /* BallPossesionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallPossesionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -246,15 +250,16 @@
 			path = StandingsScreen;
 			sourceTree = "<group>";
 		};
-		FA668B132A6FDD8F000C84B5 /* EventStatisticScreen */ = {
+		FA668B132A6FDD8F000C84B5 /* FixtureStatisticScreen */ = {
 			isa = PBXGroup;
 			children = (
-				FA668B142A6FDDB4000C84B5 /* EventStatisticView.swift */,
-				FA668B162A6FDDC9000C84B5 /* EventStatisticViewController.swift */,
+				FA668B142A6FDDB4000C84B5 /* FixtureStatisticView.swift */,
+				FA668B162A6FDDC9000C84B5 /* FixtureStatisticViewController.swift */,
 				FA668B182A6FDE22000C84B5 /* EventStatisticCollectionViewCell.swift */,
 				FA668B1C2A6FED8E000C84B5 /* BallPossesionCollectionViewCell.swift */,
+				FA39C25C2A7232E5006E2626 /* FixtureStatViewModel.swift */,
 			);
-			path = EventStatisticScreen;
+			path = FixtureStatisticScreen;
 			sourceTree = "<group>";
 		};
 		FA668B1E2A6FF698000C84B5 /* H2hScreen */ = {
@@ -274,6 +279,7 @@
 			children = (
 				FA668B292A700E54000C84B5 /* FixtureEventsView.swift */,
 				FA668B2B2A700E68000C84B5 /* FixtureEventsViewController.swift */,
+				FA39C25A2A717C89006E2626 /* FixtureEventsViewModel.swift */,
 				FA668B2D2A700E7C000C84B5 /* FixtureEventsCollectionViewCell.swift */,
 			);
 			path = FixtureEventsScreen;
@@ -361,7 +367,7 @@
 				FA668B2F2A701EDE000C84B5 /* LineUpScreen */,
 				FA668B282A700E38000C84B5 /* FixtureEventsScreen */,
 				FA668B1E2A6FF698000C84B5 /* H2hScreen */,
-				FA668B132A6FDD8F000C84B5 /* EventStatisticScreen */,
+				FA668B132A6FDD8F000C84B5 /* FixtureStatisticScreen */,
 				FA668B0A2A6FB548000C84B5 /* StandingsScreen */,
 				FA668B012A6FA39A000C84B5 /* DetailEventScreen */,
 				FA639CDB2A6EDAED00432728 /* MainScreen */,
@@ -497,7 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA668B152A6FDDB4000C84B5 /* EventStatisticView.swift in Sources */,
+				FA668B152A6FDDB4000C84B5 /* FixtureStatisticView.swift in Sources */,
 				FA639CDD2A6EDAFF00432728 /* AllEventsViewController.swift in Sources */,
 				FA8F4A582A710009000D9924 /* EndpointParameters.swift in Sources */,
 				FA014EA42A6EC5AE00043553 /* SettingsCollectionViewCell.swift in Sources */,
@@ -507,6 +513,7 @@
 				FAA528252A6EA67B005F95B1 /* Coordinator.swift in Sources */,
 				FA668B2E2A700E7C000C84B5 /* FixtureEventsCollectionViewCell.swift in Sources */,
 				FA8F4A592A710009000D9924 /* Endpoint.swift in Sources */,
+				FA39C25D2A7232E6006E2626 /* FixtureStatViewModel.swift in Sources */,
 				FAA528262A6EA67B005F95B1 /* SavingService.swift in Sources */,
 				FA668AFC2A6F9895000C84B5 /* FixtureCollectionViewCell.swift in Sources */,
 				FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */,
@@ -527,10 +534,11 @@
 				FA85AB222A71466D00CCE942 /* H2hViewModel.swift in Sources */,
 				FA014E9B2A6EB75600043553 /* OnboardingViewModel.swift in Sources */,
 				FA668B342A701F23000C84B5 /* FormationCollectionViewCell.swift in Sources */,
+				FA39C25B2A717C89006E2626 /* FixtureEventsViewModel.swift in Sources */,
 				FA8F4A672A7101AD000D9924 /* FixtureCell.swift in Sources */,
 				FA014EAC2A6EC93600043553 /* SavedEventsViewController.swift in Sources */,
 				FA014EA32A6EC5AE00043553 /* SettingsViewController.swift in Sources */,
-				FA668B172A6FDDC9000C84B5 /* EventStatisticViewController.swift in Sources */,
+				FA668B172A6FDDC9000C84B5 /* FixtureStatisticViewController.swift in Sources */,
 				FAA528282A6EA67B005F95B1 /* Observable.swift in Sources */,
 				FA668B362A701F4D000C84B5 /* LineUpView.swift in Sources */,
 				FAA528242A6EA67B005F95B1 /* MainCoordinator.swift in Sources */,

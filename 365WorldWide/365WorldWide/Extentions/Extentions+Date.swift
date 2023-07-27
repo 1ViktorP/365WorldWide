@@ -91,6 +91,13 @@ extension Date {
         return dateFormatter.string(from: date)
     }
     
+    static func formatYear(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "YYYY"
+        return dateFormatter.string(from: date)
+    }
+    
     
     static func formatFromServer(date: Date) -> String {
         let dateFormatter = DateFormatter()

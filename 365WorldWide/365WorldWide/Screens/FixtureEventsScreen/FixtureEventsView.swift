@@ -11,7 +11,7 @@ class FixtureEventsView: UIView {
 
     var collectionView: UICollectionView!
     
-    private let topBGView = TopDetailView()
+    let topBGView = TopDetailView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

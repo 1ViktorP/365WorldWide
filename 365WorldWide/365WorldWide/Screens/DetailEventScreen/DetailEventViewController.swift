@@ -110,6 +110,8 @@ extension DetailEventViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0: coordinator?.openH2HVC(codes: viewModel.teamsCode, fixture: fixtureViewModel)
+        case 1: coordinator?.openFixtureEventsVC(codes: viewModel.teamsCode, fixture: fixtureViewModel)
+        case 2: coordinator?.openFixtureStatVC(codes: viewModel.teamsCode, fixture: fixtureViewModel)
         default: break
         }
     }

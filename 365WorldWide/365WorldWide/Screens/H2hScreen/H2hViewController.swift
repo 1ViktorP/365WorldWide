@@ -71,7 +71,7 @@ class H2hViewController: UIViewController {
                 //add missing data label
             }
         }
-        
+        h2hView.topBGView.configure(with: viewModel.fixture, codes: teamCodes)
     }
 }
 
@@ -82,6 +82,7 @@ extension H2hViewController: UICollectionViewDataSource, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: H2hCollectionViewCell.reuseIdentifier, for: indexPath) as! H2hCollectionViewCell
+        cell.configure(with: viewModel.h2HCellViewModel[indexPath.row])
         return cell
     }
 }

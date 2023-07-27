@@ -11,7 +11,7 @@ class H2hView: UIView {
 
     var collectionView: UICollectionView!
     
-    private let topBGView = TopDetailView()
+    let topBGView = TopDetailView()
     var conteinerView = UIView()
     
     override init(frame: CGRect) {

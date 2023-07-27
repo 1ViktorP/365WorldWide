@@ -51,13 +51,17 @@ class MainCoordinator: Coordinator {
         let h2hVC = H2hViewController(fixture: fixture, codes: codes)
         navigationController.pushViewController(h2hVC, animated: true)
     }
+    
+    func openFixtureEventsVC(codes: TeamCodeViewModel,fixture: FixtureCellViewModel) {
+        let h2hVC = FixtureEventsViewController(fixture: fixture, codes: codes)
+        navigationController.pushViewController(h2hVC, animated: true)
+    }
+    
+    func openFixtureStatVC(codes: TeamCodeViewModel,fixture: FixtureCellViewModel) {
+        let fixtureStatVC = FixtureStatisticViewController(fixture: fixture, codes: codes)
+        navigationController.pushViewController(fixtureStatVC, animated: true)
+    }
 
-
-//    func openSettingsVC() {
-//        let settingsVC = SettingsViewController()
-//        navigationController.pushViewController(settingsVC, animated: true)
-//    }
-//
     func openSavedEventsVC() {
         let statVC = SavedEventsViewController()
         navigationController.pushViewController(statVC, animated: true)
@@ -67,18 +71,6 @@ class MainCoordinator: Coordinator {
         let termsVC = TermsViewController(isTerms: isTerms)
         navigationController.pushViewController(termsVC, animated: true)
     }
-//
-//    func openGameVC(viewModel: GameViewModel) {
-//        let gameVC = GameViewController(viewModel: viewModel)
-//        navigationController.pushViewController(gameVC, animated: true)
-//    }
-//
-//    func openStatusVC(controller: UIViewController, status: Status, dismissHandler: @escaping ((StatusDismiss)->Void)) {
-//        let statusVC = StatusViewController(status: status, dismissHandler: dismissHandler)
-//        statusVC.modalPresentationStyle = .overCurrentContext
-//        statusVC.modalTransitionStyle = .crossDissolve
-//        controller.present(statusVC, animated: true)
-//    }
 }
 
 
