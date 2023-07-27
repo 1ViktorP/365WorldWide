@@ -237,6 +237,7 @@ struct Standings: Codable {
     let all : All?
     let home : All?
     let away : All?
+    let description: String?
 }
 
 struct All : Codable {

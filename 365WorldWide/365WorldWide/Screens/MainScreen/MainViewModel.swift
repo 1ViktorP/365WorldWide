@@ -16,7 +16,7 @@ class MainViewModel {
             let isDownloaded = try await NetworkManager.shared.fetchData(endpoint: .getFixturesByDate(date: date))
             if isDownloaded {
                 guard let data = LiveDataBuffer.upcomingData?.response else { return }
-                data.enumerated().forEach { (index, item) in
+                data.forEach { item in
                     fixtures.append(FixtureCellViewModel(homeTeamIcon: URL(string: item.teams?.home?.logo ?? ""),
                                                          homeTeamName: item.teams?.home?.name ?? "",
                                                          homeTeamScore:  String(item.goals?.home ?? -1),
@@ -28,13 +28,14 @@ class MainViewModel {
                                                          isFavorite: false,
                                                          id: String(item.fixture?.id ?? 0),
                                                          date: item.fixture?.date ?? Date(),
-                                                         leagueId: "",//Without it
+                                                         leagueId: String(item.league?.id ?? 0),
                                                          leagueName: item.league?.name ?? "",
                                                          homeTeamId: String(item.teams?.home?.id ?? 0),
                                                          awayTeamId: String(item.teams?.away?.id ?? 0),
                                                          minute: String(item.fixture?.status?.elapsed ?? 00),
                                                          city: item.fixture?.venue?.city ?? "",
-                                                         country: item.league?.country ?? "")
+                                                         country: item.league?.country ?? "",
+                                                         season: item.league?.season ?? 0)
                                                         )
                 }
                 await reloadData(true)

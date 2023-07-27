@@ -65,6 +65,7 @@
 		FA8F4A672A7101AD000D9924 /* FixtureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A662A7101AD000D9924 /* FixtureCell.swift */; };
 		FA8F4A692A7109F4000D9924 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A682A7109F4000D9924 /* DateViewModel.swift */; };
 		FA8F4A6B2A710A5F000D9924 /* Extentions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A6A2A710A5F000D9924 /* Extentions+Date.swift */; };
+		FAA2FF592A72405900FA160C /* StandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2FF582A72405900FA160C /* StandingsViewModel.swift */; };
 		FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528052A6EA53B005F95B1 /* AppDelegate.swift */; };
 		FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */; };
 		FAA5280F2A6EA53D005F95B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA5280E2A6EA53D005F95B1 /* Assets.xcassets */; };
@@ -136,6 +137,7 @@
 		FA8F4A662A7101AD000D9924 /* FixtureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureCell.swift; sourceTree = "<group>"; };
 		FA8F4A682A7109F4000D9924 /* DateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
 		FA8F4A6A2A710A5F000D9924 /* Extentions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extentions+Date.swift"; sourceTree = "<group>"; };
+		FAA2FF582A72405900FA160C /* StandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewModel.swift; sourceTree = "<group>"; };
 		FAA528022A6EA53B005F95B1 /* 365WorldWide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 365WorldWide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA528052A6EA53B005F95B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				FA668B0B2A6FB648000C84B5 /* StandingsViewController.swift */,
 				FA668B0D2A6FB733000C84B5 /* StandingsView.swift */,
 				FA668B0F2A6FB7CF000C84B5 /* StandingsCollectionViewCell.swift */,
+				FAA2FF582A72405900FA160C /* StandingsViewModel.swift */,
 			);
 			path = StandingsScreen;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				FA668B172A6FDDC9000C84B5 /* FixtureStatisticViewController.swift in Sources */,
 				FAA528282A6EA67B005F95B1 /* Observable.swift in Sources */,
 				FA668B362A701F4D000C84B5 /* LineUpView.swift in Sources */,
+				FAA2FF592A72405900FA160C /* StandingsViewModel.swift in Sources */,
 				FAA528242A6EA67B005F95B1 /* MainCoordinator.swift in Sources */,
 				FA8F4A652A710187000D9924 /* MainViewModel.swift in Sources */,
 				FA668B092A6FAAB8000C84B5 /* LabelsStackView.swift in Sources */,
