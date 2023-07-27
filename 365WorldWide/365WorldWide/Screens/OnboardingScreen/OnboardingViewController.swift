@@ -40,8 +40,8 @@ final class OnboardingViewController: UIViewController {
             if row != 2 {
                 self.onboardingView.collectionView.scrollToItem(at: IndexPath(row: row + 1, section: 0), at: .left, animated: true)
             } else {
-               // self.tabBarCoordinator = TabBarCoordinator(view: self.view)
-              //  self.tabBarCoordinator?.start()
+                let tabBarCoordinator = TabBarCoordinator(view: self.view)
+                tabBarCoordinator.start()
             }
     }
 }

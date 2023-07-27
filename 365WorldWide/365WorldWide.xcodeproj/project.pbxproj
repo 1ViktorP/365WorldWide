@@ -19,6 +19,9 @@
 		FA014EAC2A6EC93600043553 /* SavedEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */; };
 		FA39C25B2A717C89006E2626 /* FixtureEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39C25A2A717C89006E2626 /* FixtureEventsViewModel.swift */; };
 		FA39C25D2A7232E6006E2626 /* FixtureStatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39C25C2A7232E5006E2626 /* FixtureStatViewModel.swift */; };
+		FA4463A92A72B550009E8545 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4463A82A72B550009E8545 /* TabBarCoordinator.swift */; };
+		FA4463AC2A72B5DB009E8545 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4463AB2A72B5DA009E8545 /* TabBarViewController.swift */; };
+		FA4463AF2A72B880009E8545 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4463AE2A72B880009E8545 /* MapViewController.swift */; };
 		FA639CDD2A6EDAFF00432728 /* AllEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CDC2A6EDAFF00432728 /* AllEventsViewController.swift */; };
 		FA639CDF2A6EDB1400432728 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CDE2A6EDB1400432728 /* MainView.swift */; };
 		FA639CE42A6EDCC300432728 /* FixtureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA639CE12A6EDCC300432728 /* FixtureView.swift */; };
@@ -98,6 +101,9 @@
 		FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedEventsViewController.swift; sourceTree = "<group>"; };
 		FA39C25A2A717C89006E2626 /* FixtureEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureEventsViewModel.swift; sourceTree = "<group>"; };
 		FA39C25C2A7232E5006E2626 /* FixtureStatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureStatViewModel.swift; sourceTree = "<group>"; };
+		FA4463A82A72B550009E8545 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		FA4463AB2A72B5DA009E8545 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		FA4463AE2A72B880009E8545 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FA639CDC2A6EDAFF00432728 /* AllEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsViewController.swift; sourceTree = "<group>"; };
 		FA639CDE2A6EDB1400432728 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FA639CE12A6EDCC300432728 /* FixtureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureView.swift; sourceTree = "<group>"; };
@@ -214,6 +220,22 @@
 				FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */,
 			);
 			path = SavedEventsScreen;
+			sourceTree = "<group>";
+		};
+		FA4463AA2A72B5DA009E8545 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				FA4463AB2A72B5DA009E8545 /* TabBarViewController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		FA4463AD2A72B868009E8545 /* MapScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FA4463AE2A72B880009E8545 /* MapViewController.swift */,
+			);
+			path = MapScreen;
 			sourceTree = "<group>";
 		};
 		FA639CDB2A6EDAED00432728 /* MainScreen */ = {
@@ -370,6 +392,7 @@
 		FAA528042A6EA53B005F95B1 /* 365WorldWide */ = {
 			isa = PBXGroup;
 			children = (
+				FA4463AA2A72B5DA009E8545 /* TabBarController */,
 				FA8F4A4D2A710009000D9924 /* NetworkModule */,
 				FA639CE02A6EDBCF00432728 /* GeneralViews */,
 				FA014EA52A6EC5C400043553 /* Model */,
@@ -388,6 +411,7 @@
 		FAA528192A6EA573005F95B1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA4463AD2A72B868009E8545 /* MapScreen */,
 				FAA2FF5C2A727A8600FA160C /* CalendarScreen */,
 				FA668B2F2A701EDE000C84B5 /* LineUpScreen */,
 				FA668B282A700E38000C84B5 /* FixtureEventsScreen */,
@@ -435,6 +459,7 @@
 		FAA5281D2A6EA67B005F95B1 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				FA4463A82A72B550009E8545 /* TabBarCoordinator.swift */,
 				FAA5281E2A6EA67B005F95B1 /* MainCoordinator.swift */,
 				FAA5281F2A6EA67B005F95B1 /* Coordinator.swift */,
 			);
@@ -538,6 +563,7 @@
 				FA014E9A2A6EB75600043553 /* OnboardingCollectionViewCell.swift in Sources */,
 				FA668B272A6FF867000C84B5 /* TeamH2hSubview.swift in Sources */,
 				FAA528252A6EA67B005F95B1 /* Coordinator.swift in Sources */,
+				FA4463AC2A72B5DB009E8545 /* TabBarViewController.swift in Sources */,
 				FA668B2E2A700E7C000C84B5 /* FixtureEventsCollectionViewCell.swift in Sources */,
 				FA8F4A592A710009000D9924 /* Endpoint.swift in Sources */,
 				FA39C25D2A7232E6006E2626 /* FixtureStatViewModel.swift in Sources */,
@@ -556,6 +582,7 @@
 				FA668B072A6FA8B2000C84B5 /* DetailEventViewModel.swift in Sources */,
 				FA668B252A6FF6FA000C84B5 /* H2hView.swift in Sources */,
 				FAA2FF5B2A724B4B00FA160C /* LineUpViewModel.swift in Sources */,
+				FA4463AF2A72B880009E8545 /* MapViewController.swift in Sources */,
 				FA668B382A701F85000C84B5 /* LineUpViewController.swift in Sources */,
 				FAA2FF632A727C0300FA160C /* CalendarViewController.swift in Sources */,
 				FA014EA22A6EC5AE00043553 /* TermsViewController.swift in Sources */,
@@ -580,6 +607,7 @@
 				FA8F4A5A2A710009000D9924 /* Leagues.swift in Sources */,
 				FAA528272A6EA67B005F95B1 /* SaveManager.swift in Sources */,
 				FA668B102A6FB7CF000C84B5 /* StandingsCollectionViewCell.swift in Sources */,
+				FA4463A92A72B550009E8545 /* TabBarCoordinator.swift in Sources */,
 				FA639CE62A6EDCC300432728 /* TeamView.swift in Sources */,
 				FA8F4A5C2A710009000D9924 /* PalyerStatisticsFromAPI.swift in Sources */,
 				FA668B202A6FF6B2000C84B5 /* H2hCollectionViewCell.swift in Sources */,
