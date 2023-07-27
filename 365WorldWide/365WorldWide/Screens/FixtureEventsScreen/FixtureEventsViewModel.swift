@@ -44,14 +44,14 @@ class FixtureEventsViewModel {
                 guard var response = LiveDataBuffer.upcomingData?.response else { return }
                 response.sort(by: {$0.time?.elapsed ?? 0 > $1.time?.elapsed ?? 0})
                 response.forEach { response in
-                    var preficsForSecondEvent = ""
-                    var preficsForFirstEvent = ""
-                    if response.type == "Card" {
-                        preficsForSecondEvent = "Foul"
-                    } else if response.type == "subst" {
-                        preficsForFirstEvent = "In : "
-                        preficsForSecondEvent = "Out : "
-                    }
+//                    var preficsForSecondEvent = ""
+//                    var preficsForFirstEvent = ""
+//                    if response.type == "Card" {
+//                        preficsForSecondEvent = "Foul"
+//                    } else if response.type == "subst" {
+//                        preficsForFirstEvent = "In : "
+//                        preficsForSecondEvent = "Out : "
+//                    }
                     if response.team?.name == fixtureData.homeTeamName {
                         let icon = self.checkTypeAndGetIcon(type: response.type ?? "",
                                                             detailType: response.detail ?? "")
@@ -59,8 +59,8 @@ class FixtureEventsViewModel {
                                                            homeType: response.type ?? "",
                                                            homeTeamEventIcon: icon,
                                                            homeTeamMinute: String(response.time?.elapsed ?? 0),
-                                                           homeTeamFirstEventName: preficsForFirstEvent + (response.player?.name ?? ""),
-                                                           homeTeamSecondEventName: preficsForSecondEvent + (response.assist?.name ?? ""),
+                                                           homeTeamFirstEventName: (response.player?.name ?? ""),
+                                                           homeTeamSecondEventName: (response.assist?.name ?? ""),
                                                            homeTeamIcon: fixtureData.homeTeamIcon,
                                                            awayType: "",
                                                            awayTeamEventIcon: nil,
@@ -82,8 +82,8 @@ class FixtureEventsViewModel {
                                                            awayType: response.type ?? "",
                                                            awayTeamEventIcon: icon,
                                                            awayTeamMinute: String(response.time?.elapsed ?? 0),
-                                                           awayTeamFirstEventName: preficsForFirstEvent + (response.player?.name ?? ""),
-                                                           awayTeamSecondEventName: preficsForSecondEvent + (response.assist?.name ?? ""),
+                                                           awayTeamFirstEventName: (response.player?.name ?? ""),
+                                                           awayTeamSecondEventName: (response.assist?.name ?? ""),
                                                            awayTeamIcon: fixtureData.awayTeamIcon))
                     }
                 }
@@ -99,7 +99,7 @@ class FixtureEventsViewModel {
     
     private func checkTypeAndGetIcon(type: String, detailType: String) -> UIImage? {
         if type == "subst" {
-            return UIImage(named: "substituIcon")
+            return UIImage(named: "substIcon")
         } else if type == "Card" {
             if detailType == "Yellow Card" || detailType == "Second Yellow card" {
                 return UIImage(named: "yellowCard")

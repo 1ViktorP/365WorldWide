@@ -7,11 +7,11 @@
 
 import UIKit
 
-class EventStatisticView: UIView {
+class FixtureStatisticView: UIView {
 
     var collectionView: UICollectionView!
     
-    private let topBGView = TopDetailView()
+    let topBGView = TopDetailView()
     let conteinerView = UIView()
     let labelsStack = LabelsStackView()
    

@@ -120,4 +120,11 @@ class BallPossesionCollectionViewCell: UICollectionViewCell {
             
         ])
     }
+    
+    func configure(with viewModel: FixtureStatCellViewModel) {
+        homeTeamStatLabel.text = viewModel.homeTeamValue
+        awayTeamStatLabel.text = viewModel.awayTeamValue
+        homeProgressView.progress = viewModel.progressHomeTeam
+        awayProgressView.progress = viewModel.progressAwayTeam
+    }
 }

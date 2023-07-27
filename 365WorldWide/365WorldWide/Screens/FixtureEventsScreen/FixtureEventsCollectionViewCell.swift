@@ -130,13 +130,16 @@ class FixtureEventsCollectionViewCell: UICollectionViewCell {
     
     func configure(with viewModel: EventsCellViewModel) {
         minuteLabel.text = viewModel.homeTeamMinute ?? ""
+        if viewModel.homeTeamMinute == "" {
+            minuteLabel.text = viewModel.awayTeamMinute
+        }
         homeEventIconImageView.image = viewModel.homeTeamEventIcon
         homeTeamFirstEvent.text = viewModel.homeTeamFirstEventName
         homeTeamSecondEvent.text = viewModel.homeTeamSecondEventName
        
         awayEventIconImageView.image = viewModel.awayTeamEventIcon
-        awayTeamFirstEvent.text = viewModel.homeTeamFirstEventName
-        awayTeamSecondEvent.text = viewModel.homeTeamSecondEventName
+        awayTeamFirstEvent.text = viewModel.awayTeamFirstEventName
+        awayTeamSecondEvent.text = viewModel.awayTeamSecondEventName
     }
 }
             

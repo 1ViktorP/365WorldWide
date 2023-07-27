@@ -56,6 +56,11 @@ class MainCoordinator: Coordinator {
         let h2hVC = FixtureEventsViewController(fixture: fixture, codes: codes)
         navigationController.pushViewController(h2hVC, animated: true)
     }
+    
+    func openFixtureStatVC(codes: TeamCodeViewModel,fixture: FixtureCellViewModel) {
+        let fixtureStatVC = FixtureStatisticViewController(fixture: fixture, codes: codes)
+        navigationController.pushViewController(fixtureStatVC, animated: true)
+    }
 
     func openSavedEventsVC() {
         let statVC = SavedEventsViewController()
