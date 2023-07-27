@@ -81,6 +81,14 @@ class MainCoordinator: Coordinator {
         let termsVC = TermsViewController(isTerms: isTerms)
         navigationController.pushViewController(termsVC, animated: true)
     }
+    
+    func openCalendarVC(date: Date,dismissHandler: ((Date) -> Void)?) {
+        let calendarVC = CalendarViewController(selectedDate: date,dismissHandler: dismissHandler)
+        calendarVC.modalPresentationStyle = .overCurrentContext
+        calendarVC.modalTransitionStyle = .crossDissolve
+        navigationController.present(calendarVC, animated: true)
+    }
+
 }
 
 

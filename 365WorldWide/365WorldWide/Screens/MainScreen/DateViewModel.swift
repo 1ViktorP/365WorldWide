@@ -16,11 +16,12 @@ struct DateCellViewModel {
 
 class DateViewModel {
     
-    var dateCell: [DateCellViewModel] = []
+     var dateCell: [DateCellViewModel] = []
     
     func prepareDateCell(date: Date) {
-        let dates = date.getRangeSevenDays
-        
+        dateCell.removeAll()
+        var dates = date.getRangeSevenDays
+        dates.sort()
         dates.forEach { date in
             let formattedDates = Date.dayFormat(date: date)
             dateCell.append(DateCellViewModel(day: Date.dayFormat(date: date),

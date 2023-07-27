@@ -67,6 +67,10 @@
 		FA8F4A6B2A710A5F000D9924 /* Extentions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F4A6A2A710A5F000D9924 /* Extentions+Date.swift */; };
 		FAA2FF592A72405900FA160C /* StandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2FF582A72405900FA160C /* StandingsViewModel.swift */; };
 		FAA2FF5B2A724B4B00FA160C /* LineUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2FF5A2A724B4B00FA160C /* LineUpViewModel.swift */; };
+		FAA2FF5F2A727AAD00FA160C /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = FAA2FF5E2A727AAD00FA160C /* JTAppleCalendar */; };
+		FAA2FF632A727C0300FA160C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2FF602A727C0300FA160C /* CalendarViewController.swift */; };
+		FAA2FF642A727C0300FA160C /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2FF612A727C0300FA160C /* CalendarCollectionViewCell.swift */; };
+		FAA2FF652A727C0300FA160C /* CalendarConteinerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2FF622A727C0300FA160C /* CalendarConteinerView.swift */; };
 		FAA528062A6EA53B005F95B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528052A6EA53B005F95B1 /* AppDelegate.swift */; };
 		FAA528082A6EA53B005F95B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */; };
 		FAA5280F2A6EA53D005F95B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA5280E2A6EA53D005F95B1 /* Assets.xcassets */; };
@@ -140,6 +144,9 @@
 		FA8F4A6A2A710A5F000D9924 /* Extentions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extentions+Date.swift"; sourceTree = "<group>"; };
 		FAA2FF582A72405900FA160C /* StandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewModel.swift; sourceTree = "<group>"; };
 		FAA2FF5A2A724B4B00FA160C /* LineUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineUpViewModel.swift; sourceTree = "<group>"; };
+		FAA2FF602A727C0300FA160C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		FAA2FF612A727C0300FA160C /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAA2FF622A727C0300FA160C /* CalendarConteinerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarConteinerView.swift; sourceTree = "<group>"; };
 		FAA528022A6EA53B005F95B1 /* 365WorldWide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 365WorldWide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA528052A6EA53B005F95B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA528072A6EA53B005F95B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA8F4A632A7100A0000D9924 /* Kingfisher in Frameworks */,
+				FAA2FF5F2A727AAD00FA160C /* JTAppleCalendar in Frameworks */,
 				FA8F4A602A71007A000D9924 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +341,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FAA2FF5C2A727A8600FA160C /* CalendarScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FAA2FF612A727C0300FA160C /* CalendarCollectionViewCell.swift */,
+				FAA2FF622A727C0300FA160C /* CalendarConteinerView.swift */,
+				FAA2FF602A727C0300FA160C /* CalendarViewController.swift */,
+			);
+			path = CalendarScreen;
+			sourceTree = "<group>";
+		};
 		FAA527F92A6EA53B005F95B1 = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +388,7 @@
 		FAA528192A6EA573005F95B1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FAA2FF5C2A727A8600FA160C /* CalendarScreen */,
 				FA668B2F2A701EDE000C84B5 /* LineUpScreen */,
 				FA668B282A700E38000C84B5 /* FixtureEventsScreen */,
 				FA668B1E2A6FF698000C84B5 /* H2hScreen */,
@@ -450,6 +469,7 @@
 			packageProductDependencies = (
 				FA8F4A5F2A71007A000D9924 /* Alamofire */,
 				FA8F4A622A7100A0000D9924 /* Kingfisher */,
+				FAA2FF5E2A727AAD00FA160C /* JTAppleCalendar */,
 			);
 			productName = 365WorldWide;
 			productReference = FAA528022A6EA53B005F95B1 /* 365WorldWide.app */;
@@ -482,6 +502,7 @@
 			packageReferences = (
 				FA8F4A5E2A71007A000D9924 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FA8F4A612A7100A0000D9924 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FAA2FF5D2A727AAD00FA160C /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
 			);
 			productRefGroup = FAA528032A6EA53B005F95B1 /* Products */;
 			projectDirPath = "";
@@ -536,6 +557,7 @@
 				FA668B252A6FF6FA000C84B5 /* H2hView.swift in Sources */,
 				FAA2FF5B2A724B4B00FA160C /* LineUpViewModel.swift in Sources */,
 				FA668B382A701F85000C84B5 /* LineUpViewController.swift in Sources */,
+				FAA2FF632A727C0300FA160C /* CalendarViewController.swift in Sources */,
 				FA014EA22A6EC5AE00043553 /* TermsViewController.swift in Sources */,
 				FAA5282A2A6EA787005F95B1 /* LoaderViewController.swift in Sources */,
 				FA85AB222A71466D00CCE942 /* H2hViewModel.swift in Sources */,
@@ -546,6 +568,7 @@
 				FA014EAC2A6EC93600043553 /* SavedEventsViewController.swift in Sources */,
 				FA014EA32A6EC5AE00043553 /* SettingsViewController.swift in Sources */,
 				FA668B172A6FDDC9000C84B5 /* FixtureStatisticViewController.swift in Sources */,
+				FAA2FF652A727C0300FA160C /* CalendarConteinerView.swift in Sources */,
 				FAA528282A6EA67B005F95B1 /* Observable.swift in Sources */,
 				FA668B362A701F4D000C84B5 /* LineUpView.swift in Sources */,
 				FAA2FF592A72405900FA160C /* StandingsViewModel.swift in Sources */,
@@ -572,6 +595,7 @@
 				FA8F4A692A7109F4000D9924 /* DateViewModel.swift in Sources */,
 				FA014E992A6EB75600043553 /* OnboardingView.swift in Sources */,
 				FAA5282C2A6EA7F4005F95B1 /* LoaderView.swift in Sources */,
+				FAA2FF642A727C0300FA160C /* CalendarCollectionViewCell.swift in Sources */,
 				FA639CE52A6EDCC300432728 /* DateCollectionViewCell.swift in Sources */,
 				FA668B1D2A6FED8E000C84B5 /* BallPossesionCollectionViewCell.swift in Sources */,
 				FA668B1B2A6FEA10000C84B5 /* CircularProgressView.swift in Sources */,
@@ -810,6 +834,14 @@
 				kind = branch;
 			};
 		};
+		FAA2FF5D2A727AAD00FA160C /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -822,6 +854,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA8F4A612A7100A0000D9924 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		FAA2FF5E2A727AAD00FA160C /* JTAppleCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAA2FF5D2A727AAD00FA160C /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
+			productName = JTAppleCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

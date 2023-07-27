@@ -12,6 +12,7 @@ class MainViewModel {
     var reloadData: ( @MainActor (Bool)->Void) = { _ in }
     
     func fetchFixturesByDate(date: String) async {
+        fixtures.removeAll()
         do {
             let isDownloaded = try await NetworkManager.shared.fetchData(endpoint: .getFixturesByDate(date: date))
             if isDownloaded {

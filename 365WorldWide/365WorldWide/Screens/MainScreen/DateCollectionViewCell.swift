@@ -66,6 +66,6 @@ class DateCollectionViewCell: UICollectionViewCell {
     
     func setUpiSSelected() {
         self.backgroundColor = .mainYellowColor
-        self.layer.cornerRadius = 14
+        self.layer.cornerRadius = 23
     }
 }

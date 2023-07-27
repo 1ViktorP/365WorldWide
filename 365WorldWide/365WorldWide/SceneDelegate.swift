@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    static var deviceHeight: CGFloat = 0.0
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
      
@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let coordinator = MainCoordinator(navigationController: navController)
         let vc = AllEventsViewController()
         window?.rootViewController = UINavigationController(rootViewController: AllEventsViewController())//navController
-        //SceneDelegate.deviceHeight = window?.frame.height ?? 0.0
+        SceneDelegate.deviceHeight = window?.frame.height ?? 0.0
         //coordinator.start()
         window?.makeKeyAndVisible()
     }

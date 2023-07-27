@@ -14,7 +14,7 @@ class AllEventsViewController: UIViewController {
     private let mainViewModel = MainViewModel()
     private var coordinator: MainCoordinator?
     private var isFirstTime = true
-    //let childVC = MenuViewController()
+    private var date = Date()
     private var activityIndicator: UIActivityIndicatorView = {
        let activityIndicator = UIActivityIndicatorView()
         activityIndicator.style = .large
@@ -38,11 +38,11 @@ class AllEventsViewController: UIViewController {
         }
         mainViewModel.reloadData = { isAvailable in
             if isAvailable {
-                self.activityIndicator.stopAnimating()
                 self.mainView.fixturesCollectionView.reloadData()
             } else {
                 //add missing data label
             }
+            self.activityIndicator.stopAnimating()
         }
        
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -67,7 +67,16 @@ class AllEventsViewController: UIViewController {
     }
 
     @objc func didTapCalendarButton() {
-        
+        coordinator?.openCalendarVC(date: date, dismissHandler: { [weak self] date in
+            guard let self = self else { return }
+            self.date = date
+            self.dateViewModel.prepareDateCell(date: date)
+            self.mainView.dateCollectionView.reloadData()
+            self.isFirstTime = true
+            Task {
+                await self.mainViewModel.fetchFixturesByDate(date: Date.formatForURL(date: date))
+            }
+        })
     }
     
 //    func animateScrollTo() {
@@ -107,15 +116,17 @@ extension AllEventsViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         UIDevice.vibrate()
         if collectionView == mainView.dateCollectionView {
-//            activityIndicator.startAnimating()
-//            mainViewModel.fetchAllMatches(date: dateViewModel.dateCell[indexPath.row].dateForURL)
-//            mainView.fixturesCollectionView.reloadData()
-//            if indexPath.row != dateViewModel.dateCell.count / 2 && isFirstTime {
-//                let newIndexPath = IndexPath(row: dateViewModel.dateCell.count / 2 , section: 0)
-//                guard let cell = collectionView.cellForItem(at: newIndexPath) as? HorizontalCollectionViewCell else { return }
-//                cell.setUpIsUnselected()
-//                isFirstTime = false
-//            }
+            activityIndicator.startAnimating()
+            Task {
+                let _date = dateViewModel.dateCell[indexPath.row].dateForURL
+               await mainViewModel.fetchFixturesByDate(date: _date)
+            }
+            if indexPath.row != dateViewModel.dateCell.count / 2 && isFirstTime {
+                let newIndexPath = IndexPath(row: dateViewModel.dateCell.count / 2 , section: 0)
+                guard let cell = collectionView.cellForItem(at: newIndexPath) as? DateCollectionViewCell else { return }
+                cell.setUpIsUnselected()
+                isFirstTime = false
+            }
         } else {
             coordinator?.openDetailVC(fixture: mainViewModel.fixtures[indexPath.row])
         }

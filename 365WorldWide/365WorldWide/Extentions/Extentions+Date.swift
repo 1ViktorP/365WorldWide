@@ -20,10 +20,11 @@ extension Date {
     
     var getRangeSevenDays: [Date] {
         let calendar = Calendar.current
-        let previousDate = calendar.date(byAdding: .day, value: -3, to: Date())
-        let nextDate = calendar.date(byAdding: .day, value: 3, to: Date())
-        var dates = Date.dates(from: Date(), to: nextDate ?? Date())
-        dates += Date.dates(from: previousDate ?? Date(), to: Date())
+        let previousDate = calendar.date(byAdding: .day, value: -3, to: self)
+        let nextDate = calendar.date(byAdding: .day, value: 3, to: self)
+        let yesterday = calendar.date(byAdding: .day, value: -1, to: self) ?? Date()
+        var dates = Date.dates(from: self, to: nextDate ?? self)
+        dates += Date.dates(from: previousDate ?? Date(), to: yesterday)
         return dates
     }
     
@@ -165,5 +166,24 @@ extension Date {
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "EEE, MMM d, h:mm a"
         return dateFormatter.string(from: date)
+    }
+    
+    static func getFirstAndLastDayOfTheYear() -> (Date, Date) {
+        let year = Calendar.current.component(.year, from: Date())
+        var lastOfYear = Date()
+        // Get the first day of next year
+        if let firstOfNextYear = Calendar.current.date(from: DateComponents(year: year + 1, month: 1, day: 1)) {
+            // Get the last day of the current year
+            lastOfYear = Calendar.current.date(byAdding: .day, value: -1, to: firstOfNextYear) ?? Date()
+        }
+        let firstDayOfPreviusYear = Calendar.current.date(from: DateComponents(year: year - 1, month: 1, day: 1)) ?? Date()
+        return (firstDayOfPreviusYear, lastOfYear)
+    }
+    
+    static func formatMonth(date: Date) -> String {
+        let formatter = DateFormatter()
+           formatter.dateFormat = "MMM  YYYY"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter.string(from: date)
     }
 }
