@@ -17,6 +17,7 @@ class FormationCollectionViewCell: UICollectionViewCell {
     let homeTeamIconImageView = UIImageView()
     let awayTeamIconImageView = UIImageView()
     let formationLabelStack = LabelsStackView()
+    let codesLabelStack = LabelsStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,6 +38,7 @@ class FormationCollectionViewCell: UICollectionViewCell {
         addSubview(homeTeamIconImageView)
         addSubview(awayTeamIconImageView)
         addSubview(formationLabelStack)
+        addSubview(codesLabelStack)
         topConteinerView.backgroundColor = UIColor(red: 0.1686, green: 0.3529, blue: 0.2863, alpha: 0.5)
         topConteinerView.layer.cornerRadius = 4
         topConteinerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -47,7 +49,9 @@ class FormationCollectionViewCell: UICollectionViewCell {
         formationLabelStack.rightLabel.textColor = .mainGreenColor
         formationLabelStack.leftLabel.text = "4-4-4"
         formationLabelStack.rightLabel.text = "44-4"
-
+        
+        codesLabelStack.leftLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        codesLabelStack.rightLabel.font = .systemFont(ofSize: 14, weight: .medium)
     }
     
     private func setUpConstraints() {
@@ -58,6 +62,7 @@ class FormationCollectionViewCell: UICollectionViewCell {
         formationLabelStack.translatesAutoresizingMaskIntoConstraints = false
         homeTeamIconImageView.translatesAutoresizingMaskIntoConstraints = false
         awayTeamIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        codesLabelStack.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             topConteinerView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
@@ -69,6 +74,10 @@ class FormationCollectionViewCell: UICollectionViewCell {
             homeTeamIconImageView.centerYAnchor.constraint(equalTo: topConteinerView.centerYAnchor, constant: 0),
             homeTeamIconImageView.heightAnchor.constraint(equalToConstant: 20),
             homeTeamIconImageView.widthAnchor.constraint(equalToConstant: 20),
+            
+            codesLabelStack.centerYAnchor.constraint(equalTo: topConteinerView.centerYAnchor),
+            codesLabelStack.leadingAnchor.constraint(equalTo: homeTeamIconImageView.trailingAnchor, constant: 8),
+            codesLabelStack.trailingAnchor.constraint(equalTo: awayTeamIconImageView.leadingAnchor, constant: -8),
             
             awayTeamIconImageView.trailingAnchor.constraint(equalTo: topConteinerView.trailingAnchor, constant: -8),
             awayTeamIconImageView.centerYAnchor.constraint(equalTo: topConteinerView.centerYAnchor, constant: 0),

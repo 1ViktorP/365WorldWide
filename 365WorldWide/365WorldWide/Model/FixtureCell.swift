@@ -26,6 +26,7 @@ struct FixtureCellViewModel: Codable {
     let minute: String
     let city: String
     let country: String
+    var season: Int = 0
 }
 
 struct LeaguesList: Codable {

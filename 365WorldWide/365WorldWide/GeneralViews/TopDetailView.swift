@@ -91,7 +91,7 @@ class TopDetailView: UIView {
     func configure(with fixture: FixtureCellViewModel, codes: TeamCodeViewModel) {
         homeTeamNameLabel.text = codes.homeTeamCode
         homeTeamIcon.kf.setImage(with: fixture.homeTeamIcon)
-        awayTeamNameLabel.text = codes.homeTeamCode
+        awayTeamNameLabel.text = codes.awayTeamCode
         awayTeamIcon.kf.setImage(with: fixture.awayTeamIcon)
         
         if fixture.status == "1H" || fixture.status == "HT" || fixture.status == "2H" ||  fixture.status == "ET" ||

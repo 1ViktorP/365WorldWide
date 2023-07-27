@@ -39,7 +39,7 @@ class StandingsCollectionViewCell: UICollectionViewCell {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.text = "1"
+        label.text = "P"
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .white
         return label
@@ -49,7 +49,7 @@ class StandingsCollectionViewCell: UICollectionViewCell {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.text = "1"
+        label.text = "GD"
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .white
         return label
@@ -59,7 +59,7 @@ class StandingsCollectionViewCell: UICollectionViewCell {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.text = "1"
+        label.text = "PTS"
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .white
         return label
@@ -97,7 +97,7 @@ class StandingsCollectionViewCell: UICollectionViewCell {
             stack.centerYAnchor.constraint(equalTo: centerYAnchor),
             stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            ptsLabel.widthAnchor.constraint(equalToConstant: 20),
+            ptsLabel.widthAnchor.constraint(equalToConstant: 30),
             
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -120,5 +120,14 @@ class StandingsCollectionViewCell: UICollectionViewCell {
             bottomLine.leadingAnchor.constraint(equalTo: teamNameLabel.leadingAnchor),
             bottomLine.heightAnchor.constraint(equalToConstant: 1),
         ])
+    }
+    
+    func configure(with viewModel: StandingsCellViewModel) {
+        teamIconImageView.kf.setImage(with: viewModel.teamIcon)
+        numberlabel.text = viewModel.rank
+        teamNameLabel.text = viewModel.teamName
+        pLabel.text = viewModel.played
+        gdLabel.text = viewModel.goalsDiff
+        ptsLabel.text = viewModel.points
     }
 }

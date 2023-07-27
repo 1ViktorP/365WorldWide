@@ -11,7 +11,7 @@ class StandingsView: UIView {
     
     var collectionView: UICollectionView!
     
-    private let topBGView = TopDetailView()
+    let topBGView = TopDetailView()
     var conteinerView = UIView()
     let leageNameLabel: UILabel = {
        let label = UILabel()
