@@ -72,14 +72,17 @@ class DetailEventView: UIView {
         labelsStack.spacing = 8
         labelsStack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(labelsStack)
-        
+        var topFixtureAnchor: CGFloat = 0
+        if SceneDelegate.deviceHeight > 811 {
+            topFixtureAnchor = -16
+        }
         NSLayoutConstraint.activate([
             topImageView.topAnchor.constraint(equalTo: topAnchor),
             topImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             topImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             topImageView.heightAnchor.constraint(equalToConstant: 337),
             
-            fixtureView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
+            fixtureView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: topFixtureAnchor),
             fixtureView.leadingAnchor.constraint(equalTo: leadingAnchor),
             fixtureView.trailingAnchor.constraint(equalTo: trailingAnchor),
             fixtureView.heightAnchor.constraint(equalToConstant: 125),

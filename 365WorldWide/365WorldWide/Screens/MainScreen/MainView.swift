@@ -43,10 +43,10 @@ class MainView: UIView {
     private func setUpCollectionView() {
         dateCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: generateLayout())
         self.addSubview(dateCollectionView)
-        dateCollectionView.backgroundColor = UIColor(named: "mainBGColor")
         dateCollectionView.isScrollEnabled = false
+        dateCollectionView.clipsToBounds = true
+        dateCollectionView.backgroundColor = .clear
         dateCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         dateCollectionView.register(DateCollectionViewCell.self, forCellWithReuseIdentifier: DateCollectionViewCell.reuseIdentifier)
     }
     
@@ -63,8 +63,8 @@ class MainView: UIView {
         
         NSLayoutConstraint.activate([
             
-            dateCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            dateCollectionView.trailingAnchor.constraint(equalTo: calendarButton.leadingAnchor, constant: -16),
+            dateCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            dateCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -95),
             dateCollectionView.heightAnchor.constraint(equalToConstant: 70),
             dateCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
             
@@ -102,7 +102,7 @@ class MainView: UIView {
             widthDimension: .absolute(64),
             heightDimension: .fractionalHeight(1))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [fullSizeItem])
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16)
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         return section
