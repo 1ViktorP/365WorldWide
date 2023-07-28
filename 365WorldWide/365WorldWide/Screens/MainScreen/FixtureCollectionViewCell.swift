@@ -11,6 +11,7 @@ class FixtureCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = String(describing: FixtureCollectionViewCell.self)
     
     let conteinerView = FixtureView()
+    var favoriteButtonHandler: (()-> Void) = { }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +28,11 @@ class FixtureCollectionViewCell: UICollectionViewCell {
         conteinerView.minuteLabel.layer.cornerRadius = 5
         self.layer.cornerRadius = 4
         self.clipsToBounds = true
+        conteinerView.saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
+    }
+    
+    @objc func didTapSaveButton() {
+        favoriteButtonHandler()
     }
     
     func configure(with viewModel: FixtureCellViewModel) {
@@ -42,9 +48,9 @@ class FixtureCollectionViewCell: UICollectionViewCell {
         
         conteinerView.placeLabel.text = city + "," + viewModel.country
         if viewModel.isFavorite {
-            conteinerView.starImageView.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+            conteinerView.saveButton.setImage(UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
         } else {
-            conteinerView.starImageView.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+            conteinerView.saveButton.setImage(UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
         }
         
         if viewModel.status == "1H" || viewModel.status == "HT" || viewModel.status == "2H" ||  viewModel.status == "ET" ||

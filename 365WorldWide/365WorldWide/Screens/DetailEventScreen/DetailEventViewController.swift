@@ -11,6 +11,7 @@ class DetailEventViewController: UIViewController {
     
     private let detailView = DetailEventView()
     private let viewModel = DetailEventViewModel()
+    private var navigationMenu = NavigationMenu()
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .semibold)
@@ -23,6 +24,8 @@ class DetailEventViewController: UIViewController {
     
     private let fixtureViewModel: FixtureCellViewModel!
     private var coordinator: MainCoordinator?
+    private var saveBarButtonItem: UIBarButtonItem!
+    private var isSaved = false
     
     init(fixture: FixtureCellViewModel) {
         self.fixtureViewModel = fixture
@@ -44,6 +47,10 @@ class DetailEventViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white.withAlphaComponent(0.5)
         navigationController?.navigationItem.backButtonTitle = "Events"
         navigationItem.titleView = titleLabel
+        navigationMenu.delegate = self
+        saveBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(didTapSaveButtonItem))
+        navigationItem.rightBarButtonItems = [navigationMenu.addMenuToNavBar(isFixture: true), saveBarButtonItem,]
+        retrieveAndCheckFavorites()
         detailView.collectionView.dataSource = self
         detailView.collectionView.delegate = self
         
@@ -56,6 +63,37 @@ class DetailEventViewController: UIViewController {
         coordinator = MainCoordinator(navigationController: navigationController)
     }
     
+   @objc func didTapSaveButtonItem() {
+       if !isSaved {
+           isSaved = true
+           addToFavorites()
+       } else {
+           isSaved = false
+           deleteFavoriteItem()
+       }
+    }
+    
+        func retrieveAndCheckFavorites() {
+            let favoriteFixture = SaveManager.shared.getDataFromFavorite() as [FixtureCellViewModel]
+            if favoriteFixture.contains(where: { $0.id == fixtureViewModel.id }) {
+                saveBarButtonItem.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+                isSaved = true
+            } else {
+                saveBarButtonItem.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+                isSaved = false
+            }
+        }
+    
+        func addToFavorites() {
+            saveBarButtonItem.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+            SaveManager.shared.setDataToFavorites(data: fixtureViewModel)
+        }
+    
+        func deleteFavoriteItem() {
+            saveBarButtonItem.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+            SaveManager.shared.removeDataFromFavorites(id: fixtureViewModel.id)
+        }
+    
     func configure(with viewModel: FixtureCellViewModel) {
         detailView.fixtureView.homeTeamView.teamNameLabel.text = viewModel.homeTeamName
         detailView.fixtureView.homeTeamView.teamImageView.kf.setImage(with: viewModel.homeTeamIcon)
@@ -65,12 +103,7 @@ class DetailEventViewController: UIViewController {
         detailView.fixtureView.placeLabel.text = viewModel.city + "," + viewModel.country
         detailView.leagueLabelStack.rightLabel.text = viewModel.leagueName
         detailView.dateLabelStack.rightLabel.attributedText = attrText(Date.formatDateForDetailView(date: viewModel.date))
-        if viewModel.isFavorite {
-            detailView.fixtureView.starImageView.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
-        } else {
-            detailView.fixtureView.starImageView.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
-        }
-        
+
         if viewModel.status == "1H" || viewModel.status == "HT" || viewModel.status == "2H" ||  viewModel.status == "ET" ||
             viewModel.status == "BT" ||  viewModel.status == "P" {
             detailView.fixtureView.dateLabel.isHidden = true
@@ -115,6 +148,30 @@ extension DetailEventViewController: UICollectionViewDataSource, UICollectionVie
         case 3: coordinator?.openLineUpVC(codes: viewModel.teamsCode, fixture: fixtureViewModel)
         case 4: coordinator?.openStandingsVC(codes: viewModel.teamsCode, fixture: fixtureViewModel)
         default: break
+        }
+    }
+}
+
+extension DetailEventViewController: NavigationMenuDelegate {
+    func addReminder() {
+        let date = fixtureViewModel.date
+        if (date > Date()) {
+            let date = date
+            let home = fixtureViewModel.homeTeamName
+            let away = fixtureViewModel.awayTeamName
+            let subTitle = home + " - " + away
+            NotificationManager.setNotifications(title: "Fixture is Starting", subTitle: subTitle, date: date)
+        }
+    }
+    
+    func share() {
+        let message = "Let's share to your friends"
+        if let link = NSURL(string: "http://yoururl.com")
+        {
+            let objectsToShare = [message, link]  as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            self.present(activityVC, animated: true)
         }
     }
 }

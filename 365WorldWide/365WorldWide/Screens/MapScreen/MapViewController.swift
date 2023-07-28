@@ -14,6 +14,8 @@ class MapViewController: UIViewController {
     private var mapView = MKMapView()
     private var mapViewModel = MapViewModel()
     private let fixtureView = FixtureView()
+    private var isSaved = false
+    private var fixture: FixtureCellViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,11 +88,6 @@ class MapViewController: UIViewController {
         }
         
         fixtureView.placeLabel.text = city + "," + viewModel.country
-        if viewModel.isFavorite {
-            fixtureView.starImageView.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
-        } else {
-            fixtureView.starImageView.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
-        }
         
         if viewModel.status == "1H" || viewModel.status == "HT" || viewModel.status == "2H" ||  viewModel.status == "ET" ||
             viewModel.status == "BT" ||  viewModel.status == "P" {
@@ -108,6 +105,46 @@ class MapViewController: UIViewController {
             fixtureView.timeScoreLabel.text =  Date.formatHours(date: viewModel.date)
             fixtureView.minuteLabel.isHidden = true
         }
+        isSaved = retrieveAndCheckFavorites(fixtureID: viewModel.id)
+        if isSaved {
+            fixtureView.saveButton.setImage(UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
+        } else {
+            fixtureView.saveButton.setImage(UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
+        }
+        fixtureView.saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
+    }
+    
+    @objc func didTapSaveButton() {
+        if !isSaved {
+            isSaved = true
+            guard let fixture = fixture else { return }
+            addToFavorites(fixture: fixture)
+        } else {
+            isSaved = false
+            guard let fixture = fixture else { return }
+            deleteFavoriteItem(fixture: fixture)
+        }
+    }
+    
+    func retrieveAndCheckFavorites(fixtureID: String) -> Bool {
+        let favoriteFixture = SaveManager.shared.getDataFromFavorite() as [FixtureCellViewModel]
+        if favoriteFixture.contains(where: { $0.id == fixtureID }) {
+            return true
+        } else {
+          return false
+        }
+    }
+
+    func addToFavorites(fixture: FixtureCellViewModel) {
+        print("add to favorite")
+        fixtureView.saveButton.setImage(UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
+        SaveManager.shared.setDataToFavorites(data: fixture)
+    }
+
+    func deleteFavoriteItem(fixture: FixtureCellViewModel) {
+        fixtureView.saveButton.setImage(UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
+        print("remove from fav")
+        SaveManager.shared.removeDataFromFavorites(id: fixture.id)
     }
 }
 
@@ -126,6 +163,7 @@ extension MapViewController: MKMapViewDelegate {
         guard let data = mapViewModel.mapDataViewModel.first(where: {$0.coordinates?.latitude == coordinates.latitude}) else { return }
         guard let fixture = mapViewModel.fixtureViewModel.first(where: {$0.id == data.fixtureId}) else { return }
         configure(with: fixture)
+        self.fixture = fixture
         //guard let navigationController = navigationController else { return }
 //        let coordinator = MainCoordinator(navigationController: navigationController)
 //        coordinator.openDetailVC(fixture: fixture)

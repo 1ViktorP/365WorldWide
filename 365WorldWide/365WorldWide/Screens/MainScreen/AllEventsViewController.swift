@@ -41,7 +41,14 @@ class AllEventsViewController: UIViewController {
         activityIndicator.startAnimating()
     }
     
-  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task {
+            await mainViewModel.fetchFixturesByDate(date: Date.getToday)
+        }
+    }
+    
+    
     private func setUp() {
         view.addSubview(missingDataLabel)
         missingDataLabel.isHidden = true
@@ -49,10 +56,7 @@ class AllEventsViewController: UIViewController {
         missingDataLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -65).isActive = true
         missingDataLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         missingDataLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        Task {
-            await mainViewModel.fetchFixturesByDate(date: Date.getToday)
-        }
+       
         mainViewModel.reloadData = { isAvailable in
             if isAvailable {
                 self.mainView.fixturesCollectionView.reloadData()
@@ -79,12 +83,6 @@ class AllEventsViewController: UIViewController {
         guard let navigationController = navigationController else { return }
         coordinator = MainCoordinator(navigationController: navigationController)
     }
-   
-    override func viewDidAppear(_ animated: Bool) {
-        if isFirstTime {
-           // animateScrollTo()
-        }
-    }
 
     @objc func didTapCalendarButton() {
         coordinator?.openCalendarVC(date: date, dismissHandler: { [weak self] date in
@@ -98,14 +96,6 @@ class AllEventsViewController: UIViewController {
             }
         })
     }
-    
-//    func animateScrollTo() {
-//        UIView.animate(withDuration: 0.1, delay: 0) {
-//            self.mainView.dateCollectionView.scrollToItem(at: IndexPath(row: self.dateViewModel.dateCell.count / 2 - 2, section: 0), at: .left, animated: false)
-//        }
-//            mainViewModel.fetchAllMatches(date: dateViewModel.dateCell[self.dateViewModel.dateCell.count / 2].dateForURL)
-//    }
-    
 }
 
 extension AllEventsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -128,6 +118,17 @@ extension AllEventsViewController: UICollectionViewDelegate, UICollectionViewDat
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixtureCollectionViewCell.reuseIdentifier, for: indexPath) as! FixtureCollectionViewCell
+            cell.favoriteButtonHandler = {
+                if !self.mainViewModel.fixtures[indexPath.row].isFavorite {
+                    self.mainViewModel.fixtures[indexPath.row].isFavorite = true
+                    collectionView.reloadItems(at: [indexPath])
+                    self.mainViewModel.addToFavorites(fixture: self.mainViewModel.fixtures[indexPath.row])
+                } else {
+                    self.mainViewModel.fixtures[indexPath.row].isFavorite = false
+                    collectionView.reloadItems(at: [indexPath])
+                    self.mainViewModel.deleteFavoriteItem(fixture: self.mainViewModel.fixtures[indexPath.row])
+                }
+            }
             cell.configure(with: mainViewModel.fixtures[indexPath.row])
             return cell
         }

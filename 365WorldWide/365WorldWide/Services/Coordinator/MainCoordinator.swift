@@ -32,16 +32,8 @@ class MainCoordinator: Coordinator {
         onboardingVC.modalTransitionStyle = .crossDissolve
         navigationController.present(onboardingVC, animated: true)
     }
-//
-//    func openMainVC(from view: UIView) {
-//        let mainVC = MainViewController()
-//        mainVC.modalPresentationStyle = .overCurrentContext
-//        mainVC.modalTransitionStyle = .crossDissolve
-//        navigationController.pushViewController(mainVC, animated: true)
-//        view.window?.rootViewController = navigationController
-//        view.window?.makeKeyAndVisible()
-//    }
-//
+
+
     func openDetailVC(fixture: FixtureCellViewModel) {
         let detailVC = DetailEventViewController(fixture: fixture)
         navigationController.pushViewController(detailVC, animated: true)
@@ -73,7 +65,7 @@ class MainCoordinator: Coordinator {
     }
 
     func openSavedEventsVC() {
-        let statVC = SavedEventsViewController()
+        let statVC = SavedViewController()
         navigationController.pushViewController(statVC, animated: true)
     }
 //
