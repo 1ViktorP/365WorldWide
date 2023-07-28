@@ -110,6 +110,7 @@ class FixtureView: UIView {
         let placeStack = UIStackView(arrangedSubviews: [geoIconImageView, placeLabel])
         placeStack.axis = .horizontal
         placeStack.spacing = 4
+        placeStack.alignment = .center
         placeStack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(placeStack)
         geoIconImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -127,6 +128,8 @@ class FixtureView: UIView {
             
             placeStack.centerXAnchor.constraint(equalTo: conteinerPlaceView.centerXAnchor),
             placeStack.bottomAnchor.constraint(equalTo: conteinerPlaceView.bottomAnchor, constant: -4),
+//            placeStack.leadingAnchor.constraint(equalTo: conteinerPlaceView.leadingAnchor),
+//            placeStack.trailingAnchor.constraint(equalTo: conteinerPlaceView.trailingAnchor),
             
             geoIconImageView.heightAnchor.constraint(equalToConstant: 15),
             geoIconImageView.widthAnchor.constraint(equalToConstant: 15),

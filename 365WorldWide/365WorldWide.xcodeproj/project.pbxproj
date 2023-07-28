@@ -86,6 +86,8 @@
 		FAA5282A2A6EA787005F95B1 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA528292A6EA787005F95B1 /* LoaderViewController.swift */; };
 		FAA5282C2A6EA7F4005F95B1 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5282B2A6EA7F4005F95B1 /* LoaderView.swift */; };
 		FAA5282E2A6EA819005F95B1 /* Extentions+UIKIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5282D2A6EA819005F95B1 /* Extentions+UIKIt.swift */; };
+		FAF050592A72BCDA0065AB5B /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF050582A72BCDA0065AB5B /* AnnotationView.swift */; };
+		FAF0505B2A72BCE50065AB5B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0505A2A72BCE50065AB5B /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +169,8 @@
 		FAA528292A6EA787005F95B1 /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		FAA5282B2A6EA7F4005F95B1 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		FAA5282D2A6EA819005F95B1 /* Extentions+UIKIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extentions+UIKIt.swift"; sourceTree = "<group>"; };
+		FAF050582A72BCDA0065AB5B /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		FAF0505A2A72BCE50065AB5B /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,8 @@
 		FA4463AD2A72B868009E8545 /* MapScreen */ = {
 			isa = PBXGroup;
 			children = (
+				FAF0505A2A72BCE50065AB5B /* MapViewModel.swift */,
+				FAF050582A72BCDA0065AB5B /* AnnotationView.swift */,
 				FA4463AE2A72B880009E8545 /* MapViewController.swift */,
 			);
 			path = MapScreen;
@@ -566,6 +572,7 @@
 				FA4463AC2A72B5DB009E8545 /* TabBarViewController.swift in Sources */,
 				FA668B2E2A700E7C000C84B5 /* FixtureEventsCollectionViewCell.swift in Sources */,
 				FA8F4A592A710009000D9924 /* Endpoint.swift in Sources */,
+				FAF0505B2A72BCE50065AB5B /* MapViewModel.swift in Sources */,
 				FA39C25D2A7232E6006E2626 /* FixtureStatViewModel.swift in Sources */,
 				FAA528262A6EA67B005F95B1 /* SavingService.swift in Sources */,
 				FA668AFC2A6F9895000C84B5 /* FixtureCollectionViewCell.swift in Sources */,
@@ -622,6 +629,7 @@
 				FA8F4A5D2A710009000D9924 /* GameStatisticFromAPI.swift in Sources */,
 				FA8F4A692A7109F4000D9924 /* DateViewModel.swift in Sources */,
 				FA014E992A6EB75600043553 /* OnboardingView.swift in Sources */,
+				FAF050592A72BCDA0065AB5B /* AnnotationView.swift in Sources */,
 				FAA5282C2A6EA7F4005F95B1 /* LoaderView.swift in Sources */,
 				FAA2FF642A727C0300FA160C /* CalendarCollectionViewCell.swift in Sources */,
 				FA639CE52A6EDCC300432728 /* DateCollectionViewCell.swift in Sources */,

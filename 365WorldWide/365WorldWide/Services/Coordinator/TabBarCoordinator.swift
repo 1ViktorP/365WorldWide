@@ -21,8 +21,8 @@ class TabBarCoordinator: Coordinator {
     
     func start() {
         let tabBarViewController = TabBarViewController()
-        tabBarViewController.selectedIndex = 2
         tabBarViewController.viewControllers = setUp()
+        tabBarViewController.selectedIndex = 1
         view.window?.rootViewController = tabBarViewController
         view.window?.makeKeyAndVisible()
     }

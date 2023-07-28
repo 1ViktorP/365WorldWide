@@ -25,6 +25,7 @@ final class OnboardingViewController: UIViewController {
         onboardingView.collectionView.delegate = self
         onboardingViewModel.fillModel()
         onboardingView.startButton.addTarget(self, action: #selector(didTapStartButton), for: .touchUpInside)
+        onboardingView.skipButton.addTarget(self, action: #selector(didTapSkipButton), for: .touchUpInside)
         
         onboardingView.rowHandler = { [weak self] row in
             guard let self = self else { return }
@@ -43,6 +44,11 @@ final class OnboardingViewController: UIViewController {
                 let tabBarCoordinator = TabBarCoordinator(view: self.view)
                 tabBarCoordinator.start()
             }
+    }
+    
+    @objc func didTapSkipButton() {
+        let tabBarCoordinator = TabBarCoordinator(view: self.view)
+        tabBarCoordinator.start()
     }
 }
 

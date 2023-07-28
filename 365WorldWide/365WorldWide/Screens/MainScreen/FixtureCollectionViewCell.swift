@@ -35,7 +35,12 @@ class FixtureCollectionViewCell: UICollectionViewCell {
         conteinerView.awayTeamView.teamNameLabel.text = viewModel.awayTeamName
         conteinerView.awayTeamView.teamImageView.kf.setImage(with: viewModel.awayTeamIcon)
         conteinerView.statusLabel.text = viewModel.status
-        conteinerView.placeLabel.text = viewModel.city + "," + viewModel.country
+        var city = viewModel.city
+        if let dotRange = city.range(of: ",") {
+            city.removeSubrange(dotRange.lowerBound..<city.endIndex)
+        }
+        
+        conteinerView.placeLabel.text = city + "," + viewModel.country
         if viewModel.isFavorite {
             conteinerView.starImageView.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
         } else {
