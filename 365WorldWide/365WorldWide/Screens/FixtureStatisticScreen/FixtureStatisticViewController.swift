@@ -29,6 +29,16 @@ class FixtureStatisticViewController: UIViewController {
         return activityIndicator
     }()
     
+    private var missingDataLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Dear user, no information on this event is available yet"
+        label.font = .systemFont(ofSize: 19, weight: .light)
+        label.textColor = .white.withAlphaComponent(0.5)
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private var viewModel: FixtureStatViewModel!
     private var teamCodes: TeamCodeViewModel!
     
@@ -53,6 +63,13 @@ class FixtureStatisticViewController: UIViewController {
         navigationController?.navigationItem.backButtonTitle = "Detail"
         navigationItem.titleView = titleLabel
         
+        view.addSubview(missingDataLabel)
+        missingDataLabel.isHidden = true
+        missingDataLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 65).isActive = true
+        missingDataLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -65).isActive = true
+        missingDataLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        missingDataLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         statView.collectionView.dataSource = self
         statView.collectionView.delegate = self
         
@@ -62,11 +79,14 @@ class FixtureStatisticViewController: UIViewController {
         
         viewModel.reloadData = { isAvailable in
             if isAvailable {
-                self.activityIndicator.stopAnimating()
                 self.statView.collectionView.reloadData()
+                self.missingDataLabel.isHidden = true
             } else {
-                //add missing data label
+                self.missingDataLabel.isHidden = false
+                self.statView.collectionView.reloadData()
+                
             }
+            self.activityIndicator.stopAnimating()
         }
         statView.topBGView.configure(with: viewModel.fixture, codes: teamCodes)
     }

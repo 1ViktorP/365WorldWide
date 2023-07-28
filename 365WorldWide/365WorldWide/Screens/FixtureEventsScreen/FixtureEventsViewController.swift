@@ -29,6 +29,16 @@ class FixtureEventsViewController: UIViewController {
         return activityIndicator
     }()
     
+    private var missingDataLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Dear user, no information on this event is available yet"
+        label.font = .systemFont(ofSize: 19, weight: .light)
+        label.textColor = .white.withAlphaComponent(0.5)
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private var viewModel: FixtureEventsViewModel!
     private var teamCodes: TeamCodeViewModel!
 
@@ -56,17 +66,27 @@ class FixtureEventsViewController: UIViewController {
         fixtureView.collectionView.dataSource = self
         fixtureView.collectionView.delegate = self
         
+        view.addSubview(missingDataLabel)
+        missingDataLabel.isHidden = true
+        missingDataLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 65).isActive = true
+        missingDataLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -65).isActive = true
+        missingDataLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        missingDataLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         view.addSubview(activityIndicator)
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityIndicator.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
         
         viewModel.reloadData = { isAvailable in
             if isAvailable {
-                self.activityIndicator.stopAnimating()
                 self.fixtureView.collectionView.reloadData()
+                self.missingDataLabel.isHidden = true
             } else {
-                //add missing data label
+                self.missingDataLabel.isHidden = false
+                self.fixtureView.collectionView.reloadData()
+                
             }
+            self.activityIndicator.stopAnimating()
         }
         fixtureView.topBGView.configure(with: viewModel.fixture, codes: teamCodes)
     }
