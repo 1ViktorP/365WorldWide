@@ -11,7 +11,7 @@ class FixtureView: UIView {
 
    let homeTeamView = TeamView()
    let awayTeamView = TeamView()
-   let starImageView = UIImageView()
+   let saveButton = UIButton()
     let conteinerPlaceView = UIView()
     let geoIconImageView = UIImageView()
 
@@ -82,7 +82,7 @@ class FixtureView: UIView {
     
     private func setUp() {
         self.backgroundColor = .cellBGColor
-        addSubview(starImageView)
+        addSubview(saveButton)
         addSubview(conteinerPlaceView)
         addSubview(statusLabel)
         addSubview(timeScoreLabel)
@@ -90,7 +90,7 @@ class FixtureView: UIView {
         addSubview(homeTeamView)
         addSubview(awayTeamView)
         addSubview(minuteLabel)
-        starImageView.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+        saveButton.setImage(UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
         conteinerPlaceView.backgroundColor = UIColor(red: 0.2196, green: 0.4824, blue: 0.3373, alpha: 1.0)
         conteinerPlaceView.layer.cornerRadius = 10
         conteinerPlaceView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
@@ -102,7 +102,7 @@ class FixtureView: UIView {
     }
     
     private func setUpConstraints() {
-        starImageView.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
         conteinerPlaceView.translatesAutoresizingMaskIntoConstraints = false
         homeTeamView.translatesAutoresizingMaskIntoConstraints = false
         awayTeamView.translatesAutoresizingMaskIntoConstraints = false
@@ -116,10 +116,10 @@ class FixtureView: UIView {
         geoIconImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            starImageView.heightAnchor.constraint(equalToConstant: 24),
-            starImageView.widthAnchor.constraint(equalToConstant: 24),
-            starImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            starImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            saveButton.heightAnchor.constraint(equalToConstant: 24),
+            saveButton.widthAnchor.constraint(equalToConstant: 24),
+            saveButton.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
             conteinerPlaceView.heightAnchor.constraint(equalToConstant: 35),
             conteinerPlaceView.widthAnchor.constraint(equalToConstant: 130),

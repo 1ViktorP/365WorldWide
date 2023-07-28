@@ -15,6 +15,7 @@ class AllEventsViewController: UIViewController {
     private var coordinator: MainCoordinator?
     private var isFirstTime = true
     private var date = Date()
+    private var isSaved = false
     private var activityIndicator: UIActivityIndicatorView = {
        let activityIndicator = UIActivityIndicatorView()
         activityIndicator.style = .large
@@ -79,12 +80,6 @@ class AllEventsViewController: UIViewController {
         guard let navigationController = navigationController else { return }
         coordinator = MainCoordinator(navigationController: navigationController)
     }
-   
-    override func viewDidAppear(_ animated: Bool) {
-        if isFirstTime {
-           // animateScrollTo()
-        }
-    }
 
     @objc func didTapCalendarButton() {
         coordinator?.openCalendarVC(date: date, dismissHandler: { [weak self] date in
@@ -99,13 +94,36 @@ class AllEventsViewController: UIViewController {
         })
     }
     
-//    func animateScrollTo() {
-//        UIView.animate(withDuration: 0.1, delay: 0) {
-//            self.mainView.dateCollectionView.scrollToItem(at: IndexPath(row: self.dateViewModel.dateCell.count / 2 - 2, section: 0), at: .left, animated: false)
-//        }
-//            mainViewModel.fetchAllMatches(date: dateViewModel.dateCell[self.dateViewModel.dateCell.count / 2].dateForURL)
+    @objc func didTapSaveButton(sender: UIButton) {
+        if !isSaved {
+            isSaved = false
+            sender.setImage(UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
+         //   addToFavorites(fixture: fixture)
+        } else {
+            isSaved = true
+            sender.setImage(UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
+           // deleteFavoriteItem(fixture: fixture)
+        }
+    }
+//    
+    func retrieveAndCheckFavorites(fixtureID: String) -> Bool {
+        let favoriteFixture = SaveManager.shared.getDataFromFavorite() as [FixtureCellViewModel]
+        if favoriteFixture.contains(where: { $0.id == fixtureID }) {
+            return true
+        } else {
+          return false
+        }
+    }
+//
+//    func addToFavorites(fixture: FixtureCellViewModel) {
+//        saveBarButtonItem.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+//        SaveManager.shared.setDataToFavorites(data: fixture)
 //    }
-    
+////
+//    func deleteFavoriteItem(fixture: FixtureCellViewModel) {
+//        saveBarButtonItem.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+//        SaveManager.shared.removeDataFromFavorites(id: fixture.id)
+//    }
 }
 
 extension AllEventsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -128,6 +146,11 @@ extension AllEventsViewController: UICollectionViewDelegate, UICollectionViewDat
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixtureCollectionViewCell.reuseIdentifier, for: indexPath) as! FixtureCollectionViewCell
+            mainViewModel.fixtures[indexPath.row].isFavorite = retrieveAndCheckFavorites(fixtureID: mainViewModel.fixtures[indexPath.row].id)
+            cell.favoriteButtonHandler = { favoriteButton in
+                favoriteButton.addTarget(self, action: #selector(self.didTapSaveButton), for: .touchUpInside)
+                print("saved: \(self.isSaved)" )
+            }
             cell.configure(with: mainViewModel.fixtures[indexPath.row])
             return cell
         }

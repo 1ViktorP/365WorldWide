@@ -45,7 +45,7 @@ class DetailEventView: UIView {
         topImageView.image = UIImage(named: "eventBGImage")
         fixtureView.conteinerPlaceView.backgroundColor = .clear
         fixtureView.backgroundColor = .clear
-        fixtureView.starImageView.isHidden = true
+        fixtureView.saveButton.isHidden = true
         fixtureView.statusLabel.isHidden = true
         leagueLabelStack.leftLabel.text = "League: "
         dateLabelStack.leftLabel.text = "Date: "

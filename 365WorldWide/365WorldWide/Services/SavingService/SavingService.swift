@@ -20,24 +20,23 @@ class SavingService {
         }
     }
     
-    func saveData<GameType: Codable>(encodeData: GameType, key: String) {
+     func saveData<T: Encodable>(encodeData: T, key: String) {
         let encoder = JSONEncoder()
            if let encoded = try? encoder.encode(encodeData) {
+               print("saved")
                UserDefaults.standard.set(encoded, forKey: key)
            }
     }
     
-    func retrieveData<GameType: Codable>(key: String) -> GameType? {
-        var data: GameType?
+     func retrieveData<T:Decodable>(key: String) -> T? {
+        var data: T?
         if let savedData = UserDefaults.standard.object(forKey: key) as? Data {
+            print("tryToRetrieve")
                 let decoder = JSONDecoder()
-                if let loadedData = try? decoder.decode(GameType.self, from: savedData) {
+                if let loadedData = try? decoder.decode(T.self, from: savedData) {
                    print("retrieved")
                     data = loadedData
-                   return data
                 }
-        } else {
-            print("cant retrieve")
         }
         return data
     }

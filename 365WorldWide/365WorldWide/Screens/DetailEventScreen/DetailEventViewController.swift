@@ -24,6 +24,8 @@ class DetailEventViewController: UIViewController {
     
     private let fixtureViewModel: FixtureCellViewModel!
     private var coordinator: MainCoordinator?
+    private var saveBarButtonItem: UIBarButtonItem!
+    private var isSaved = false
     
     init(fixture: FixtureCellViewModel) {
         self.fixtureViewModel = fixture
@@ -46,8 +48,9 @@ class DetailEventViewController: UIViewController {
         navigationController?.navigationItem.backButtonTitle = "Events"
         navigationItem.titleView = titleLabel
         navigationMenu.delegate = self
-        //navigationMenu.delegate?.retrieveAndCheckFavorites()
-        navigationItem.rightBarButtonItem = navigationMenu.addMenuToNavBar(isFixture: true)
+        saveBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(didTapSaveButtonItem))
+        navigationItem.rightBarButtonItems = [navigationMenu.addMenuToNavBar(isFixture: true), saveBarButtonItem,]
+        retrieveAndCheckFavorites()
         detailView.collectionView.dataSource = self
         detailView.collectionView.delegate = self
         
@@ -60,6 +63,37 @@ class DetailEventViewController: UIViewController {
         coordinator = MainCoordinator(navigationController: navigationController)
     }
     
+   @objc func didTapSaveButtonItem() {
+       if !isSaved {
+           isSaved = true
+           addToFavorites()
+       } else {
+           isSaved = false
+           deleteFavoriteItem()
+       }
+    }
+    
+        func retrieveAndCheckFavorites() {
+            let favoriteFixture = SaveManager.shared.getDataFromFavorite() as [FixtureCellViewModel]
+            if favoriteFixture.contains(where: { $0.id == fixtureViewModel.id }) {
+                saveBarButtonItem.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+                isSaved = true
+            } else {
+                saveBarButtonItem.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+                isSaved = false
+            }
+        }
+    
+        func addToFavorites() {
+            saveBarButtonItem.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+            SaveManager.shared.setDataToFavorites(data: fixtureViewModel)
+        }
+    
+        func deleteFavoriteItem() {
+            saveBarButtonItem.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
+            SaveManager.shared.removeDataFromFavorites(id: fixtureViewModel.id)
+        }
+    
     func configure(with viewModel: FixtureCellViewModel) {
         detailView.fixtureView.homeTeamView.teamNameLabel.text = viewModel.homeTeamName
         detailView.fixtureView.homeTeamView.teamImageView.kf.setImage(with: viewModel.homeTeamIcon)
@@ -69,12 +103,7 @@ class DetailEventViewController: UIViewController {
         detailView.fixtureView.placeLabel.text = viewModel.city + "," + viewModel.country
         detailView.leagueLabelStack.rightLabel.text = viewModel.leagueName
         detailView.dateLabelStack.rightLabel.attributedText = attrText(Date.formatDateForDetailView(date: viewModel.date))
-        if viewModel.isFavorite {
-            detailView.fixtureView.starImageView.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
-        } else {
-            detailView.fixtureView.starImageView.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
-        }
-        
+
         if viewModel.status == "1H" || viewModel.status == "HT" || viewModel.status == "2H" ||  viewModel.status == "ET" ||
             viewModel.status == "BT" ||  viewModel.status == "P" {
             detailView.fixtureView.dateLabel.isHidden = true
@@ -145,30 +174,4 @@ extension DetailEventViewController: NavigationMenuDelegate {
             self.present(activityVC, animated: true)
         }
     }
-    
-    
-    
-    //    func retrieveAndCheckFavorites() {
-    //        let favoriteFixture = FavoritesManager.shared.getDataFromFavorite(from: .event) as [FavoriteEvents]
-    //        if favoriteFixture.contains(where: { $0.fixtureData.id == fixtureStatViewModel.fixtureData.id }) {
-    //            navigationMenu.isSaved = true
-    //            navigationItem.rightBarButtonItem = navigationMenu.addMenuToNavBar(isFixture: true)
-    //        } else {
-    //            navigationMenu.isSaved = false
-    //            navigationItem.rightBarButtonItem = navigationMenu.addMenuToNavBar(isFixture: true)
-    //        }
-    //    }
-    //
-    //    func addToFavorites() {
-    //        navigationMenu.isSaved = true
-    //        let event = FavoriteEvents(fixtureData: fixtureStatViewModel.fixtureData)
-    //        FavoritesManager.shared.setDataToFavorites(data: event, for: .event)
-    //        navigationItem.rightBarButtonItem = navigationMenu.addMenuToNavBar(isFixture: true)
-    //    }
-    //
-    //    func deleteFavoriteItem() {
-    //        FavoritesManager.shared.removeDataFromFavorites(id: fixtureStatViewModel.fixtureData.id, for: .event)
-    //        navigationMenu.isSaved = false
-    //        navigationItem.rightBarButtonItem = navigationMenu.addMenuToNavBar(isFixture: true)
-    //    }
 }

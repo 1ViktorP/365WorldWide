@@ -121,6 +121,17 @@ class SettingsViewController: UIViewController {
             UserDefaults.standard.set(false, forKey: "notification")
         }
     }
+    
+    func reminderSwitchTapped(isOn: Bool) {
+        UIDevice.vibrate()
+        if isOn {
+            NotificationManager.requestNotifications()
+            UserDefaults.standard.set(true, forKey: "eventReminder")
+        } else {
+            NotificationManager.disableNotifications()
+            UserDefaults.standard.set(false, forKey: "eventReminder")
+        }
+    }
 
 }
 
@@ -157,6 +168,12 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
                     } else {
                         cell.toogleHandler(true)
                     }
+                } else if indexPath.row == 2 {
+                    if UserDefaults.standard.bool(forKey: "eventReminder") == false {
+                        cell.toogleHandler(false)
+                    } else {
+                        cell.toogleHandler(true)
+                    }
                 }
             }
         return cell
@@ -186,11 +203,21 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
                 isOn.toggle()
                 cell.toogleHandler(isOn)
                 vibrationSwitchTapped(isOn: isOn)
-            case 2: coordinator.openTermsVC(isTerms: true)
-            case 3: coordinator.openTermsVC(isTerms: false)
-            case 4: rateUs()
-            case 5: feedBack()
-            case 6: coordinator.openSavedEventsVC()
+            case 2:
+                var isOn = false
+                if UserDefaults.standard.bool(forKey: "eventReminder") == false {
+                    isOn = false
+                } else {
+                    isOn = true
+                }
+                isOn.toggle()
+                cell.toogleHandler(isOn)
+                reminderSwitchTapped(isOn: isOn)
+            case 3: coordinator.openTermsVC(isTerms: true)
+            case 4: coordinator.openTermsVC(isTerms: false)
+            case 5: rateUs()
+            case 6: feedBack()
+            case 7: coordinator.openSavedEventsVC()
             default: break
             }
         }

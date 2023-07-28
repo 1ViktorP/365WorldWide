@@ -16,7 +16,7 @@ struct FixtureCellViewModel: Codable {
     let awayTeamScore: String
     let status: String
     let dateStr: String
-    let isFavorite: Bool
+    var isFavorite: Bool
     let id: String
     let date: Date
     let leagueId: String
