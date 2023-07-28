@@ -13,6 +13,7 @@ class MainViewModel {
     
     func fetchFixturesByDate(date: String) async {
         fixtures.removeAll()
+        let favoriteFixtures = SaveManager.shared.getDataFromFavorite() as [FixtureCellViewModel]
         do {
             let isDownloaded = try await NetworkManager.shared.fetchData(endpoint: .getFixturesByDate(date: date))
             if isDownloaded {
@@ -26,7 +27,7 @@ class MainViewModel {
                                                          awayTeamScore: String(item.goals?.away ?? -1),
                                                          status: item.fixture?.status?.short ?? "",
                                                          dateStr: Date.formatHours(date: item.fixture?.date ?? Date()),
-                                                         isFavorite: false,
+                                                         isFavorite: checkFavorites(fixtureID: String(item.fixture?.id ?? 0), favoriteFixture: favoriteFixtures),
                                                          id: String(item.fixture?.id ?? 0),
                                                          date: item.fixture?.date ?? Date(),
                                                          leagueId: String(item.league?.id ?? 0),
@@ -53,5 +54,21 @@ class MainViewModel {
     private func addScore(goals: Goals?) -> String {
         guard let goals = goals else { return ""}
         return String(goals.home ?? 0) + "-" + String(goals.away ?? 0)
+    }
+    
+    func checkFavorites(fixtureID: String, favoriteFixture: [FixtureCellViewModel]) -> Bool {
+        if favoriteFixture.contains(where: { $0.id == fixtureID }) {
+            return true
+        } else {
+          return false
+        }
+    }
+
+    func addToFavorites(fixture: FixtureCellViewModel) {
+        SaveManager.shared.setDataToFavorites(data: fixture)
+    }
+
+    func deleteFavoriteItem(fixture: FixtureCellViewModel) {
+        SaveManager.shared.removeDataFromFavorites(id: fixture.id)
     }
 }

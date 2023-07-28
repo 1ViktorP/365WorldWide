@@ -15,7 +15,6 @@ class AllEventsViewController: UIViewController {
     private var coordinator: MainCoordinator?
     private var isFirstTime = true
     private var date = Date()
-    private var isSaved = false
     private var activityIndicator: UIActivityIndicatorView = {
        let activityIndicator = UIActivityIndicatorView()
         activityIndicator.style = .large
@@ -42,7 +41,14 @@ class AllEventsViewController: UIViewController {
         activityIndicator.startAnimating()
     }
     
-  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task {
+            await mainViewModel.fetchFixturesByDate(date: Date.getToday)
+        }
+    }
+    
+    
     private func setUp() {
         view.addSubview(missingDataLabel)
         missingDataLabel.isHidden = true
@@ -50,10 +56,7 @@ class AllEventsViewController: UIViewController {
         missingDataLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -65).isActive = true
         missingDataLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         missingDataLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        Task {
-            await mainViewModel.fetchFixturesByDate(date: Date.getToday)
-        }
+       
         mainViewModel.reloadData = { isAvailable in
             if isAvailable {
                 self.mainView.fixturesCollectionView.reloadData()
@@ -93,37 +96,6 @@ class AllEventsViewController: UIViewController {
             }
         })
     }
-    
-//    @objc func didTapSaveButton(sender: UIButton) {
-//        if !isSaved {
-//            isSaved = false
-//            sender.setImage(UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
-//         //   addToFavorites(fixture: fixture)
-//        } else {
-//            isSaved = true
-//            sender.setImage(UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
-//           // deleteFavoriteItem(fixture: fixture)
-//        }
-//    }
-//    
-    func retrieveAndCheckFavorites(fixtureID: String) -> Bool {
-        let favoriteFixture = SaveManager.shared.getDataFromFavorite() as [FixtureCellViewModel]
-        if favoriteFixture.contains(where: { $0.id == fixtureID }) {
-            return true
-        } else {
-          return false
-        }
-    }
-//
-//    func addToFavorites(fixture: FixtureCellViewModel) {
-//        saveBarButtonItem.image = UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
-//        SaveManager.shared.setDataToFavorites(data: fixture)
-//    }
-////
-//    func deleteFavoriteItem(fixture: FixtureCellViewModel) {
-//        saveBarButtonItem.image = UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal)
-//        SaveManager.shared.removeDataFromFavorites(id: fixture.id)
-//    }
 }
 
 extension AllEventsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -146,9 +118,16 @@ extension AllEventsViewController: UICollectionViewDelegate, UICollectionViewDat
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixtureCollectionViewCell.reuseIdentifier, for: indexPath) as! FixtureCollectionViewCell
-            mainViewModel.fixtures[indexPath.row].isFavorite = retrieveAndCheckFavorites(fixtureID: mainViewModel.fixtures[indexPath.row].id)
             cell.favoriteButtonHandler = {
-              
+                if !self.mainViewModel.fixtures[indexPath.row].isFavorite {
+                    self.mainViewModel.fixtures[indexPath.row].isFavorite = true
+                    collectionView.reloadItems(at: [indexPath])
+                    self.mainViewModel.addToFavorites(fixture: self.mainViewModel.fixtures[indexPath.row])
+                } else {
+                    self.mainViewModel.fixtures[indexPath.row].isFavorite = false
+                    collectionView.reloadItems(at: [indexPath])
+                    self.mainViewModel.deleteFavoriteItem(fixture: self.mainViewModel.fixtures[indexPath.row])
+                }
             }
             cell.configure(with: mainViewModel.fixtures[indexPath.row])
             return cell
