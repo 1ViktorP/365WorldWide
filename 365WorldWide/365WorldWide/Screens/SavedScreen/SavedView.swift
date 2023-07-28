@@ -41,7 +41,7 @@ class SavedView: UIView {
             fixturesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             fixturesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             fixturesCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            fixturesCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24)
+            fixturesCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0)
         ])
     }
     

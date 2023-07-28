@@ -16,7 +16,6 @@
 		FA014EA42A6EC5AE00043553 /* SettingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EA12A6EC5AE00043553 /* SettingsCollectionViewCell.swift */; };
 		FA014EA82A6EC5D200043553 /* TermsPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EA62A6EC5D100043553 /* TermsPolicy.swift */; };
 		FA014EA92A6EC5D200043553 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EA72A6EC5D200043553 /* Settings.swift */; };
-		FA014EAC2A6EC93600043553 /* SavedEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */; };
 		FA39C25B2A717C89006E2626 /* FixtureEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39C25A2A717C89006E2626 /* FixtureEventsViewModel.swift */; };
 		FA39C25D2A7232E6006E2626 /* FixtureStatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39C25C2A7232E5006E2626 /* FixtureStatViewModel.swift */; };
 		FA4463A92A72B550009E8545 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4463A82A72B550009E8545 /* TabBarCoordinator.swift */; };
@@ -105,7 +104,6 @@
 		FA014EA12A6EC5AE00043553 /* SettingsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA014EA62A6EC5D100043553 /* TermsPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsPolicy.swift; sourceTree = "<group>"; };
 		FA014EA72A6EC5D200043553 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedEventsViewController.swift; sourceTree = "<group>"; };
 		FA39C25A2A717C89006E2626 /* FixtureEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureEventsViewModel.swift; sourceTree = "<group>"; };
 		FA39C25C2A7232E5006E2626 /* FixtureStatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureStatViewModel.swift; sourceTree = "<group>"; };
 		FA4463A82A72B550009E8545 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -226,14 +224,6 @@
 				FA014EA62A6EC5D100043553 /* TermsPolicy.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		FA014EAA2A6EC91F00043553 /* SavedEventsScreen */ = {
-			isa = PBXGroup;
-			children = (
-				FA014EAB2A6EC93600043553 /* SavedEventsViewController.swift */,
-			);
-			path = SavedEventsScreen;
 			sourceTree = "<group>";
 		};
 		FA4463AA2A72B5DA009E8545 /* TabBarController */ = {
@@ -438,7 +428,6 @@
 				FA668B0A2A6FB548000C84B5 /* StandingsScreen */,
 				FA668B012A6FA39A000C84B5 /* DetailEventScreen */,
 				FA639CDB2A6EDAED00432728 /* MainScreen */,
-				FA014EAA2A6EC91F00043553 /* SavedEventsScreen */,
 				FA014E9E2A6EC56E00043553 /* SettingsScreen */,
 				FA014E932A6EAE9500043553 /* OnboardingScreen */,
 				FAA5281A2A6EA5AC005F95B1 /* LoaderScreen */,
@@ -641,7 +630,6 @@
 				FA668B342A701F23000C84B5 /* FormationCollectionViewCell.swift in Sources */,
 				FA39C25B2A717C89006E2626 /* FixtureEventsViewModel.swift in Sources */,
 				FA8F4A672A7101AD000D9924 /* FixtureCell.swift in Sources */,
-				FA014EAC2A6EC93600043553 /* SavedEventsViewController.swift in Sources */,
 				FA014EA32A6EC5AE00043553 /* SettingsViewController.swift in Sources */,
 				FA668B172A6FDDC9000C84B5 /* FixtureStatisticViewController.swift in Sources */,
 				FAA2FF652A727C0300FA160C /* CalendarConteinerView.swift in Sources */,

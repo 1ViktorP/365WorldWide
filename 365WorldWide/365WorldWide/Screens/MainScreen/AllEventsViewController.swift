@@ -94,17 +94,17 @@ class AllEventsViewController: UIViewController {
         })
     }
     
-    @objc func didTapSaveButton(sender: UIButton) {
-        if !isSaved {
-            isSaved = false
-            sender.setImage(UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
-         //   addToFavorites(fixture: fixture)
-        } else {
-            isSaved = true
-            sender.setImage(UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
-           // deleteFavoriteItem(fixture: fixture)
-        }
-    }
+//    @objc func didTapSaveButton(sender: UIButton) {
+//        if !isSaved {
+//            isSaved = false
+//            sender.setImage(UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
+//         //   addToFavorites(fixture: fixture)
+//        } else {
+//            isSaved = true
+//            sender.setImage(UIImage(systemName: "star")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
+//           // deleteFavoriteItem(fixture: fixture)
+//        }
+//    }
 //    
     func retrieveAndCheckFavorites(fixtureID: String) -> Bool {
         let favoriteFixture = SaveManager.shared.getDataFromFavorite() as [FixtureCellViewModel]
@@ -147,9 +147,8 @@ extension AllEventsViewController: UICollectionViewDelegate, UICollectionViewDat
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixtureCollectionViewCell.reuseIdentifier, for: indexPath) as! FixtureCollectionViewCell
             mainViewModel.fixtures[indexPath.row].isFavorite = retrieveAndCheckFavorites(fixtureID: mainViewModel.fixtures[indexPath.row].id)
-            cell.favoriteButtonHandler = { favoriteButton in
-                favoriteButton.addTarget(self, action: #selector(self.didTapSaveButton), for: .touchUpInside)
-                print("saved: \(self.isSaved)" )
+            cell.favoriteButtonHandler = {
+              
             }
             cell.configure(with: mainViewModel.fixtures[indexPath.row])
             return cell

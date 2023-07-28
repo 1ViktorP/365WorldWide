@@ -17,7 +17,7 @@ class SavedViewController: UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .semibold)
          label.textColor = .white
-         label.text = ""
+         label.text = "Saved Events"
          label.textAlignment = .center
          label.translatesAutoresizingMaskIntoConstraints = false
          return label
@@ -26,6 +26,12 @@ class SavedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = saveView
+        setUp()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        saveViewModel.retrieveFavorites()
     }
     
     private func setUp() {
@@ -35,6 +41,10 @@ class SavedViewController: UIViewController {
         
         saveView.fixturesCollectionView.dataSource = self
         saveView.fixturesCollectionView.delegate = self
+        
+        saveViewModel.reloadData = { _ in
+            self.saveView.fixturesCollectionView.reloadData()
+        }
         
         guard let navigationController = navigationController else { return }
         coordinator = MainCoordinator(navigationController: navigationController)
@@ -49,6 +59,10 @@ extension SavedViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixtureCollectionViewCell.reuseIdentifier, for: indexPath) as! FixtureCollectionViewCell
             cell.configure(with: saveViewModel.favoritesFixture[indexPath.row])
+        cell.favoriteButtonHandler = {
+            self.saveViewModel.deleteFavoriteItem(fixture: self.saveViewModel.favoritesFixture[indexPath.row])
+        }
+        cell.conteinerView.saveButton.setImage(UIImage(systemName: "star.fill")?.withTintColor(.mainYellowColor, renderingMode: .alwaysOriginal), for: .normal)
             return cell
     }
     

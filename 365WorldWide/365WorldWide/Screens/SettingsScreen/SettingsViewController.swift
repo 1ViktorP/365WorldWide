@@ -169,6 +169,8 @@ extension SettingsViewController: UICollectionViewDataSource, UICollectionViewDe
                         cell.toogleHandler(true)
                     }
                 } else if indexPath.row == 2 {
+                    cell.disclosureIcon.isHidden = true
+                    cell.switchButton.isHidden = false
                     if UserDefaults.standard.bool(forKey: "eventReminder") == false {
                         cell.toogleHandler(false)
                     } else {

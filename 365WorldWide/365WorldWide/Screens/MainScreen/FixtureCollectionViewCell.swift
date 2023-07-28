@@ -11,7 +11,7 @@ class FixtureCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = String(describing: FixtureCollectionViewCell.self)
     
     let conteinerView = FixtureView()
-    var favoriteButtonHandler: (UIButton)-> Void = {_ in }
+    var favoriteButtonHandler: (()-> Void) = { }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +28,11 @@ class FixtureCollectionViewCell: UICollectionViewCell {
         conteinerView.minuteLabel.layer.cornerRadius = 5
         self.layer.cornerRadius = 4
         self.clipsToBounds = true
-        favoriteButtonHandler(conteinerView.saveButton)
+        conteinerView.saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
+    }
+    
+    @objc func didTapSaveButton() {
+        favoriteButtonHandler()
     }
     
     func configure(with viewModel: FixtureCellViewModel) {

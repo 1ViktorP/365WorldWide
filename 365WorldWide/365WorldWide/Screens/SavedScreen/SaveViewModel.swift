@@ -13,6 +13,7 @@ class SaveViewModel {
     var reloadData: ((Bool) -> Void) = { _ in }
     
     func retrieveFavorites() {
+        favoritesFixture.removeAll()
         favoritesFixture = SaveManager.shared.getDataFromFavorite() as [FixtureCellViewModel]
         print("retrieve: \(favoritesFixture.count)")
         if favoritesFixture.isEmpty {
@@ -20,5 +21,11 @@ class SaveViewModel {
         } else {
             reloadData(true)
         }
+    }
+
+    func deleteFavoriteItem(fixture: FixtureCellViewModel) {
+        favoritesFixture.removeAll(where: {$0.id == fixture.id})
+        SaveManager.shared.removeDataFromFavorites(id: fixture.id)
+         reloadData(true)
     }
 }
