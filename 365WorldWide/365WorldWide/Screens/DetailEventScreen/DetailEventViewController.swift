@@ -11,6 +11,7 @@ class DetailEventViewController: UIViewController {
     
     private let detailView = DetailEventView()
     private let viewModel = DetailEventViewModel()
+    private var navigationMenu = NavigationMenu()
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .semibold)
@@ -44,6 +45,9 @@ class DetailEventViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white.withAlphaComponent(0.5)
         navigationController?.navigationItem.backButtonTitle = "Events"
         navigationItem.titleView = titleLabel
+        navigationMenu.delegate = self
+        //navigationMenu.delegate?.retrieveAndCheckFavorites()
+        navigationItem.rightBarButtonItem = navigationMenu.addMenuToNavBar(isFixture: true)
         detailView.collectionView.dataSource = self
         detailView.collectionView.delegate = self
         
@@ -117,4 +121,54 @@ extension DetailEventViewController: UICollectionViewDataSource, UICollectionVie
         default: break
         }
     }
+}
+
+extension DetailEventViewController: NavigationMenuDelegate {
+    func addReminder() {
+        let date = fixtureViewModel.date
+        if (date > Date()) {
+            let date = date
+            let home = fixtureViewModel.homeTeamName
+            let away = fixtureViewModel.awayTeamName
+            let subTitle = home + " - " + away
+            NotificationManager.setNotifications(title: "Fixture is Starting", subTitle: subTitle, date: date)
+        }
+    }
+    
+    func share() {
+        let message = "Let's share to your friends"
+        if let link = NSURL(string: "http://yoururl.com")
+        {
+            let objectsToShare = [message, link]  as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            self.present(activityVC, animated: true)
+        }
+    }
+    
+    
+    
+    //    func retrieveAndCheckFavorites() {
+    //        let favoriteFixture = FavoritesManager.shared.getDataFromFavorite(from: .event) as [FavoriteEvents]
+    //        if favoriteFixture.contains(where: { $0.fixtureData.id == fixtureStatViewModel.fixtureData.id }) {
+    //            navigationMenu.isSaved = true
+    //            navigationItem.rightBarButtonItem = navigationMenu.addMenuToNavBar(isFixture: true)
+    //        } else {
+    //            navigationMenu.isSaved = false
+    //            navigationItem.rightBarButtonItem = navigationMenu.addMenuToNavBar(isFixture: true)
+    //        }
+    //    }
+    //
+    //    func addToFavorites() {
+    //        navigationMenu.isSaved = true
+    //        let event = FavoriteEvents(fixtureData: fixtureStatViewModel.fixtureData)
+    //        FavoritesManager.shared.setDataToFavorites(data: event, for: .event)
+    //        navigationItem.rightBarButtonItem = navigationMenu.addMenuToNavBar(isFixture: true)
+    //    }
+    //
+    //    func deleteFavoriteItem() {
+    //        FavoritesManager.shared.removeDataFromFavorites(id: fixtureStatViewModel.fixtureData.id, for: .event)
+    //        navigationMenu.isSaved = false
+    //        navigationItem.rightBarButtonItem = navigationMenu.addMenuToNavBar(isFixture: true)
+    //    }
 }

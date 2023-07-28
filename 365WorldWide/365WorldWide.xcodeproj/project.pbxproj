@@ -88,6 +88,8 @@
 		FAA5282E2A6EA819005F95B1 /* Extentions+UIKIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5282D2A6EA819005F95B1 /* Extentions+UIKIt.swift */; };
 		FAF050592A72BCDA0065AB5B /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF050582A72BCDA0065AB5B /* AnnotationView.swift */; };
 		FAF0505B2A72BCE50065AB5B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0505A2A72BCE50065AB5B /* MapViewModel.swift */; };
+		FAF050602A739F120065AB5B /* NavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0505F2A739F120065AB5B /* NavigationMenu.swift */; };
+		FAF050632A73A1F30065AB5B /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF050622A73A1F30065AB5B /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +173,8 @@
 		FAA5282D2A6EA819005F95B1 /* Extentions+UIKIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extentions+UIKIt.swift"; sourceTree = "<group>"; };
 		FAF050582A72BCDA0065AB5B /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		FAF0505A2A72BCE50065AB5B /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		FAF0505F2A739F120065AB5B /* NavigationMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMenu.swift; sourceTree = "<group>"; };
+		FAF050622A73A1F30065AB5B /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +402,7 @@
 		FAA528042A6EA53B005F95B1 /* 365WorldWide */ = {
 			isa = PBXGroup;
 			children = (
+				FAF0505E2A739F120065AB5B /* NavigationMenu */,
 				FA4463AA2A72B5DA009E8545 /* TabBarController */,
 				FA8F4A4D2A710009000D9924 /* NetworkModule */,
 				FA639CE02A6EDBCF00432728 /* GeneralViews */,
@@ -446,6 +451,7 @@
 		FAA5281B2A6EA5B5005F95B1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FAF050612A73A1F30065AB5B /* Reminder */,
 				FAA5281D2A6EA67B005F95B1 /* Coordinator */,
 				FAA528232A6EA67B005F95B1 /* Observable.swift */,
 				FAA528202A6EA67B005F95B1 /* SavingService */,
@@ -479,6 +485,22 @@
 				FAA528222A6EA67B005F95B1 /* SaveManager.swift */,
 			);
 			path = SavingService;
+			sourceTree = "<group>";
+		};
+		FAF0505E2A739F120065AB5B /* NavigationMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FAF0505F2A739F120065AB5B /* NavigationMenu.swift */,
+			);
+			path = NavigationMenu;
+			sourceTree = "<group>";
+		};
+		FAF050612A73A1F30065AB5B /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				FAF050622A73A1F30065AB5B /* NotificationManager.swift */,
+			);
+			path = Reminder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -567,6 +589,7 @@
 				FA014EA42A6EC5AE00043553 /* SettingsCollectionViewCell.swift in Sources */,
 				FA668B0C2A6FB648000C84B5 /* StandingsViewController.swift in Sources */,
 				FA014E9A2A6EB75600043553 /* OnboardingCollectionViewCell.swift in Sources */,
+				FAF050632A73A1F30065AB5B /* NotificationManager.swift in Sources */,
 				FA668B272A6FF867000C84B5 /* TeamH2hSubview.swift in Sources */,
 				FAA528252A6EA67B005F95B1 /* Coordinator.swift in Sources */,
 				FA4463AC2A72B5DB009E8545 /* TabBarViewController.swift in Sources */,
@@ -610,6 +633,7 @@
 				FA8F4A652A710187000D9924 /* MainViewModel.swift in Sources */,
 				FA668B092A6FAAB8000C84B5 /* LabelsStackView.swift in Sources */,
 				FA8F4A572A710009000D9924 /* NetworkManager.swift in Sources */,
+				FAF050602A739F120065AB5B /* NavigationMenu.swift in Sources */,
 				FA668B122A6FD904000C84B5 /* TopDetailView.swift in Sources */,
 				FA8F4A5A2A710009000D9924 /* Leagues.swift in Sources */,
 				FAA528272A6EA67B005F95B1 /* SaveManager.swift in Sources */,
