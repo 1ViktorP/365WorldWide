@@ -101,6 +101,8 @@ class StandingsCollectionViewCell: UICollectionViewCell {
             
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            imageView.heightAnchor.constraint(equalToConstant: 6),
+            imageView.widthAnchor.constraint(equalToConstant: 6),
             
             numberlabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             numberlabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),

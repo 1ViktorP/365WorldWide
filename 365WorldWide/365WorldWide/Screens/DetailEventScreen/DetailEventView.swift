@@ -72,26 +72,26 @@ class DetailEventView: UIView {
         labelsStack.spacing = 8
         labelsStack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(labelsStack)
-        var topFixtureAnchor: CGFloat = 0
+        var topLabelAnchor: CGFloat = 16
         if SceneDelegate.deviceHeight > 811 {
-            topFixtureAnchor = -16
+            topLabelAnchor = 46
         }
         NSLayoutConstraint.activate([
             topImageView.topAnchor.constraint(equalTo: topAnchor),
             topImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             topImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topImageView.heightAnchor.constraint(equalToConstant: 337),
+            topImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.39),
             
-            fixtureView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: topFixtureAnchor),
+            fixtureView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -24),
             fixtureView.leadingAnchor.constraint(equalTo: leadingAnchor),
             fixtureView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            fixtureView.heightAnchor.constraint(equalToConstant: 125),
+            fixtureView.heightAnchor.constraint(equalToConstant: 114),
             
             labelsStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             labelsStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            labelsStack.topAnchor.constraint(equalTo: fixtureView.bottomAnchor, constant: 24),
+            labelsStack.topAnchor.constraint(equalTo: fixtureView.bottomAnchor, constant: 0),
             
-            titleLabel.topAnchor.constraint(equalTo: topImageView.bottomAnchor, constant: 46),
+            titleLabel.topAnchor.constraint(equalTo: topImageView.bottomAnchor, constant: topLabelAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),

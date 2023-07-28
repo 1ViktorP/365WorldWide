@@ -68,8 +68,7 @@ final class OnboardingView: UIView {
         bottomView.backgroundColor = .cellBGColor
         bottomView.layer.cornerRadius = 15
         bottomView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        bgImageView.image = UIImage(named: "onBoardBG")
-       
+        bgImageView.image = UIImage(named: "onBoardBG")       
     }
     
     func setUpConstraints() {
@@ -99,7 +98,7 @@ final class OnboardingView: UIView {
             startButton.widthAnchor.constraint(equalToConstant: 243),
             startButton.heightAnchor.constraint(equalToConstant: 45),
             startButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            startButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            startButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
             
             labelStack.centerXAnchor.constraint(equalTo: centerXAnchor),
             labelStack.widthAnchor.constraint(equalToConstant: 300),
