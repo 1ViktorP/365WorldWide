@@ -148,7 +148,7 @@ extension Date {
     static func dayFormat(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "E"
+        dateFormatter.dateFormat = "MM:dd"
         let dateDay = dateFormatter.string(from: date)
         return dateDay
     }

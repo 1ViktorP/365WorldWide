@@ -26,6 +26,10 @@ class SaveViewModel {
     func deleteFavoriteItem(fixture: FixtureCellViewModel) {
         favoritesFixture.removeAll(where: {$0.id == fixture.id})
         SaveManager.shared.removeDataFromFavorites(id: fixture.id)
-         reloadData(true)
+        if favoritesFixture.isEmpty {
+            reloadData(false)
+        } else {
+            reloadData(true)
+        }
     }
 }

@@ -78,9 +78,11 @@ class StandingsViewController: UIViewController {
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityIndicator.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
         
-        viewModel.reloadData = { isAvailable in
+        viewModel.reloadData = {[weak self] isAvailable in
+            guard let self = self else { return }
             if isAvailable {
                 self.standingsView.collectionView.reloadData()
+                self.standingsView.leageNameLabel.text = self.viewModel.leagueName
                 self.missingDataLabel.isHidden = true
             } else {
                 self.missingDataLabel.isHidden = false
