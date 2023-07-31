@@ -16,6 +16,14 @@ class MapViewController: UIViewController {
     private let fixtureView = FixtureView()
     private var isSaved = false
     private var fixture: FixtureCellViewModel?
+    private var activityIndicator: UIActivityIndicatorView = {
+       let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.color = .gray
+        activityIndicator.startAnimating()
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicator
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +33,7 @@ class MapViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        activityIndicator.startAnimating()
         mapViewModel.fetchTodaysFixtures()
         setUp()
         let allAnnotations = self.mapView.annotations
@@ -36,6 +45,7 @@ class MapViewController: UIViewController {
         mapViewModel.downloadedData = { [weak self] isPresentData in
             guard let self = self else { return }
             if isPresentData {
+                self.activityIndicator.stopAnimating()
                 self.mapViewModel.mapDataViewModel.forEach { data in
                                 guard let coordinate = data.coordinates else { return }
                                self.addAnnotations(coordinate: coordinate)
@@ -46,6 +56,7 @@ class MapViewController: UIViewController {
     
     private func setUpView() {
         view.addSubview(fixtureView)
+        fixtureView.layer.cornerRadius = 4
         fixtureView.translatesAutoresizingMaskIntoConstraints = false
         fixtureView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         fixtureView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -104).isActive = true
@@ -53,6 +64,12 @@ class MapViewController: UIViewController {
         fixtureView.heightAnchor.constraint(equalToConstant: 109).isActive = true
         fixtureView.isHidden = true
         fixtureView.clipsToBounds = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapFixtureView))
+        fixtureView.addGestureRecognizer(tapGesture)
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
     }
     
    private func addAnnotations(coordinate: CLLocationCoordinate2D) {
@@ -114,6 +131,13 @@ class MapViewController: UIViewController {
         fixtureView.saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
     }
     
+    @objc func didTapFixtureView() {
+        guard let navigationController = navigationController else { return }
+        let coordinator = MainCoordinator(navigationController: navigationController)
+        guard let fixture = fixture else { return }
+        coordinator.openDetailVC(fixture: fixture)
+    }
+    
     @objc func didTapSaveButton() {
         if !isSaved {
             isSaved = true
@@ -164,7 +188,7 @@ extension MapViewController: MKMapViewDelegate {
         guard let fixture = mapViewModel.fixtureViewModel.first(where: {$0.id == data.fixtureId}) else { return }
         configure(with: fixture)
         self.fixture = fixture
-        //guard let navigationController = navigationController else { return }
+//        guard let navigationController = navigationController else { return }
 //        let coordinator = MainCoordinator(navigationController: navigationController)
 //        coordinator.openDetailVC(fixture: fixture)
     }

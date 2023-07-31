@@ -80,6 +80,6 @@ class H2hCollectionViewCell: UICollectionViewCell {
         if viewModel.awayTeamScore == "-1" {
             awayTeamView.scoreLabel.text = ""
         }
-        dateLabel.text = Date.formatHours(date: viewModel.date) + "\n" + Date.formatYear(date: viewModel.date)
+        dateLabel.text = Date.formatYear(date: viewModel.date) + "\n" + Date.dayFormat(date: viewModel.date)
     }
 }
