@@ -73,27 +73,28 @@ class DetailEventView: UIView {
         labelsStack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(labelsStack)
         fixtureView.backgroundColor = .clear
-        var topLabelAnchor: CGFloat = 16
-        var topFixtureAnchor: CGFloat = 98
+        var topLabelAnchor: CGFloat = 41
+        var topFixtureAnchor: CGFloat = 0
 
-        if SceneDelegate.deviceHeight > 811 {
-            topLabelAnchor = 46
-            topFixtureAnchor = 0
+        if SceneDelegate.deviceHeight < 812 {
+            topLabelAnchor = 16
+            topFixtureAnchor = -41
         }
+        
         NSLayoutConstraint.activate([
             topImageView.topAnchor.constraint(equalTo: topAnchor),
             topImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             topImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             topImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.39),
             
-            fixtureView.topAnchor.constraint(equalTo: topAnchor, constant: topFixtureAnchor),
+            fixtureView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: topFixtureAnchor),
             fixtureView.leadingAnchor.constraint(equalTo: leadingAnchor),
             fixtureView.trailingAnchor.constraint(equalTo: trailingAnchor),
             fixtureView.heightAnchor.constraint(equalToConstant: 114),
             
             labelsStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             labelsStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            labelsStack.topAnchor.constraint(equalTo: fixtureView.bottomAnchor, constant: 0),
+            labelsStack.topAnchor.constraint(equalTo: fixtureView.bottomAnchor, constant: 24),
             
             titleLabel.topAnchor.constraint(equalTo: topImageView.bottomAnchor, constant: topLabelAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
